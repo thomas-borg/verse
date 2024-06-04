@@ -1,1 +1,21 @@
 // Specific CSS for your home-page
+.banner {
+  background-size: cover;
+
+  h1 {
+    color: white;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  p {
+    margin-left: 10px;
+    color: white;
+    font-size: 1.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);}
+
+  url {
+    filter: brightness(50%);
+  }
+}
