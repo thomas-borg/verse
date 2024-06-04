@@ -78,7 +78,7 @@ puts "------- Creating Activities -------"
 uri = URI.parse("https://maps.amsterdam.nl/open_geodata/geojson_lnglat.php?KAARTLAAG=SPORT_OPENBAAR&THEMA=sport")
 response = Net::HTTP.get_response(uri)
 data = JSON.parse(response.body)
-all_activities = data['features']
+   = data['features']
 # selectie = ["BASKETBAL", "TENNIS", "VOETBAL", "OVERIG", "SKATE", "FITNESS", "JEUDEBOULES", "TAFELTENNIS"]
 25.times do
   index = rand(0..950)
