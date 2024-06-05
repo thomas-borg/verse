@@ -1,0 +1,27 @@
+
+<div>
+  <div class="activities-row">
+
+    <div class="main-info">
+      <div class="sports-pictures">
+        <p class="pictures"><%= image_tag "https://source.unsplash.com/random/?computer&science}", alt: "sports-icn", style: "width: 100%; height: 250px;" %></p>
+
+      </div>
+      <p class="names d-flex justify-content-center mt-3"><%= @activity.name %></p>
+
+    </div>
+
+    <p class="infos d-flex justify-content-center"><%= @activity.description %></p>
+    <div class="buttons-div">
+      <div class="button-request d-flex justify-content-center">
+        <a href="#" class="btn-go btn-primary">Request to Join</a>
+      </div>
+      <div class="button-back d-flex justify-content-center">
+        <a href="/activities" class="btn-bck btn-primary">Go Back</a>
+      </div>
+    </div>
+    <div class="maps">
+      <p class="loc"><%= image_tag "https://source.unsplash.com/random/?computer&science}", alt: "Maps-icn", style: "width: 100%; height: 175px;" %></p>
+    </div>
+  </div>
+</div>
