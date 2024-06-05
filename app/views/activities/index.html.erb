@@ -11,15 +11,17 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
+<div class="container-xl d-flex">
+  <div class="row px-2 pb-2">
     <% @activities.each_with_index do |activity, index| %>
-      <a href="/activities/<%= activity.id %>" style="text-decoration: none;" class="card-product col rounded-5 d-flex">
-        <%= image_tag "https://source.unsplash.com/random/?computer&science}/#{index}", alt: "Movie icon", style: "width: 25%; height: 100%;" %>
+      <a href="/activities/<%= activity.id %>" style="text-decoration: none;" class="card-product d-flex">
+        <i class="fa-solid fa-table-tennis-paddle-ball fa-2xl"></i>
         <div class="card-product-infos d-flex flex-column">
           <span class="text-black fw-bold"><%= activity.name %></span>
-          <p class="badge rounded-pill"><%= activity.location %></p>
-          <p class="text-black-50"><%= activity.description %></p>
+          <div class="d-flex align-items-center">
+            <p><%= activity.location %></p>
+            <button class="btn btn-primary btn-sm rounded-5" style="height: 50px;">Open</button>
+          </div>
         </div>
       </a>
     <%end %>
