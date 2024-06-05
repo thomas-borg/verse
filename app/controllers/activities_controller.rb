@@ -5,7 +5,7 @@ class ActivitiesController < ApplicationController
   def index
     @activities = Activity.all
     if params[:query].present?
-      @activities = Activity.global_search(params[:query])
+      @activities = Activity.search_by_name_and_description(params[:query])
     end
   end
 
