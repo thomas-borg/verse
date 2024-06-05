@@ -1,0 +1,26 @@
+.button{
+  display: inline-block;
+  background-color: #FFA500; /* couleur orange */
+  color: white;
+  padding: 8px 18px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50px; /* bordure arrondie */
+  font-size: 18px;
+  border: none;
+  cursor: pointer;/* bordure arrondie */
+}
+
+.button:hover {
+  background-color: #FFB733; /* couleur légèrement plus claire au survol */
+  color: white; /* garder le texte blanc */
+  transition: background-color 0.3s;
+}
+
+.circle {
+  width: 50px; /* Largeur du cercle */
+  height: 50px; /* Hauteur du cercle */
+  border: 5px solid #FFA500; /* Taille et couleur de la bordure */
+  border-radius: 50%; /* Rend l'élément circulaire */
+  padding-right: 3px;
+}
