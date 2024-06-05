@@ -5,7 +5,7 @@ class ActivitiesController < ApplicationController
   def index
     @activities = Activity.all
     if params[:query].present?
-      @activities = Activity.search_by_name_and_description(params[:query])
+      @activities = Activity.global_search(params[:query])
     end
   end
 
@@ -14,6 +14,8 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    @activity = Activity.find(params[:id])
+
   end
 
   def create
@@ -37,7 +39,9 @@ class ActivitiesController < ApplicationController
 
   def set_activity
     @activity = Activity.find(params[:id])
-
   end
 
+  def activity_params
+    params.require(:activity).permit(:name, :date_time, :description, :location, :group_size, :user_id, :sport_id)
+  end
 end
