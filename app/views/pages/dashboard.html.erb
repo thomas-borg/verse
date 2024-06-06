@@ -11,9 +11,10 @@
         <div><%= request.activity.location[0,20] + "..."  %> - <%= request.activity.date_time %></div>
       </div>
     </div>
-    <a href="/activities/<%= request.activity.id %>">
-      <button class="button"> <strong>Open</strong></button>
-    </a>
+    <div>
+    <%= link_to 'Accept', activity_member_url(request.activity, request), data: { "turbo-method": :patch } , class: "btn btn-primary"%>
+    <%= link_to 'Decline', activity_member_url(request.activity, request), data: { "turbo-method": :delete } , class: "btn btn-danger"%>
+    </div>
   </div>
   <%end %>
 
