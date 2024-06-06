@@ -20,17 +20,23 @@ class ActivitiesController < ApplicationController
 
   def new
     @activity = Activity.new
+    @sports = Sport.all
+  end
+
+  def create
+    # raise
+    @activity = Activity.new(activity_params)
+    @activity.user = current_user
+    # @activity.sport_id = Sport.find(params[:sport])
+    if @activity.save
+      redirect_to dashboard_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
     @activity = Activity.find(params[:id])
-
-  end
-
-  def create
-    @activity = Activity.new(activity_params)
-    @activity.user = current_user
-    @activity.save
   end
 
   def edit
@@ -51,6 +57,6 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:name, :date_time, :description, :location, :group_size, :user_id, :sport_id)
+    params.require(:activity).permit(:name, :date_time, :description, :location, :sport_id, :user_id)
   end
 end
