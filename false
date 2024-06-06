@@ -1,0 +1,2 @@
+      invoke  active_record
+    conflict    db/migrate/20240606102710_add_accepted_to_members.rb
