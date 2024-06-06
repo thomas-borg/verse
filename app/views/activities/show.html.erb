@@ -13,9 +13,13 @@
 
     <p class="infos d-flex justify-content-center"><%= @activity.description %></p>
     <div class="buttons-div">
-      <div class="button-request d-flex justify-content-center">
-        <a href="#" class="btn-go btn-primary">Request to Join</a>
-      </div>
+      <% if @activity.user != current_user %>
+        <div class="button-request d-flex justify-content-center">
+          <%= simple_form_for [@activity, @member] do |f| %>
+            <%= f.submit "Join", class: "btn-bck btn-primary" %>
+          <% end %>
+        </div>
+      <% end %>
       <div class="button-back d-flex justify-content-center">
         <a href="/activities" class="btn-bck btn-primary">Go Back</a>
       </div>
