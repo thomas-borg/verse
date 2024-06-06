@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_06_101527) do
     t.bigint "activity_id", null: false
     t.bigint "user_id", null: false
     t.text "comment"
+    t.boolean "accepte"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "accepted", default: false

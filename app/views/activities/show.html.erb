@@ -16,12 +16,12 @@
       <% if @activity.user != current_user %>
         <div class="button-request d-flex justify-content-center">
           <%= simple_form_for [@activity, @member] do |f| %>
-            <%= f.submit "Join", class: "btn-bck btn-primary" %>
+            <%= f.submit "Join", class: "btn-go" %>
           <% end %>
         </div>
       <% end %>
       <div class="button-back d-flex justify-content-center">
-        <a href="/activities" class="btn-bck btn-primary">Go Back</a>
+        <a href="/activities" class="btn-bck">Go Back</a>
       </div>
     </div>
     <div class="maps">

@@ -1,0 +1,31 @@
+.profile-pic {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+}
+
+.profile-images-div {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.proheader {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.mineinfo {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.edit-class {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
+}
