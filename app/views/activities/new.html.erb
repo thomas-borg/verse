@@ -1,0 +1,8 @@
+<div class="container py-4">
+  <h2 class="mb-2"> Enjoy!</h2>
+  <%= simple_form_for :activity do |a| %>
+    <%= a.input :name , input_html: { style: 'margin-bottom: 30px;' } %>
+    <%= a.input :description, input_html: { style: 'margin-bottom: 30px;' } %>
+    <%= a.submit class: "btn"%>
+  <% end %>
+</div>
