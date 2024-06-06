@@ -4,7 +4,7 @@ class CreateMembers < ActiveRecord::Migration[7.1]
       t.references :activity, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
       t.text :comment
-      t.boolean :accepted
+      t.boolean :accepte
 
       t.timestamps
     end

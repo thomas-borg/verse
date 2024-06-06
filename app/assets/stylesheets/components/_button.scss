@@ -2,7 +2,6 @@
   background-color: #FCA311 ;
   color: white;
   border-radius: 20px;
-  padding: 5px;
   text-decoration: none;
   padding-left: 15px;
   padding-right: 15px;
@@ -18,4 +17,14 @@
   border-color: #FCA311;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.btn-primary {
+  border-radius: 0px 40px 40px 0px;
+  background-color: #FCA311;
+  color: white;
+  text-decoration: none;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: bold;
 }

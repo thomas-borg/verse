@@ -3,22 +3,30 @@
 
 
     <div class="footer-collapse" id="footerSupportedContent">
-        <div class="footer-nav me-auto pt-3">
+        <div class="footer-nav pt-2">
+          <% if user_signed_in? %>
+
           <a class="foot-item">
             <a class="foot-link" aria-current="page"  href="/"><%= image_tag("home-64.png",  :alt => "logos", :class => "logos-home") %></a>
           </a>
           <a class="foot-item">
-            <a class="foot-link" aria-current="page"  href="/"><%= image_tag("notification-64.png",  :alt => "logos", :class => "logos-notification") %></a>
+            <a class="foot-link" aria-current="page"  href="/dashboard"><%= image_tag("dashboard-48.png",  :alt => "logos", :class => "logos-dashboard") %></a>
           </a>
           <a class="foot-item">
-            <a class="foot-link" aria-current="page"  href="/activity/new"> <%= image_tag("add-64.png",  :alt => "logos", :class => "logos-add-activity") %></a>
+            <a class="foot-link" aria-current="page"  href="/activities/new"> <%= image_tag("add-64.png",  :alt => "logos", :class => "logos-add-activity") %></a>
           </a>
           <a class="foot-item">
             <a class="foot-link" aria-current="page" href="/chat"><%= image_tag("messages-60.png",  :alt => "logos", :class => "logos-messages") %></a>
           </a>
-          <a class="foot-item">
-            <a class="foot-link" href="/menu"><%= image_tag("hamburger-icon.png",  :alt => "logos", :class => "logos-menu") %></a>
+          <a  href="#" class="foot-item" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag("user-52.png",  :alt => "dropdown menu", :class => "logos-profile") %></a>
           </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="footerDropdown">
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+          <% else %>
+          <p></p>
+          <% end %>
         </div>
 
       </div>
@@ -27,3 +35,8 @@
 
 
 </div>
+
+
+    <!--button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <%= image_tag "hamburger-icon.png", alt: "dropdown menu" %>
+    </button-->
