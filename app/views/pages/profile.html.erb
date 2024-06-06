@@ -1,0 +1,56 @@
+
+    <div class="image-n-title pb-3">
+      <h1 class="proheader">Profile</h1>
+      <hr class="featurette-divider">
+        <div class="profile-images-div">
+
+            <%= image_tag "https://source.unsplash.com/random/?{user}", alt: "Profile icon", class:"profile-pic", height:"250" %>
+
+        </div>
+    </div>
+    <div class="personal-detailsss">
+    <h2 class="mineinfo">Personal Details</h2>
+    <hr class="featurette-divider">
+      <div class="container pb-1">
+
+        <div class="user-informations d-flex justify-content-between">
+          <div class="personal-details">
+              <div class="details-title">
+              <h3>User Name</h3>
+              </div>
+              <div class="user-name">
+                <h5><%= @user.username %></h5>
+              </div>
+              <hr class="featurette-divider">
+              <div class="details-title">
+              <h3>Full Name</h3>
+              </div>
+              <div class="full-name">
+                <h5 class="first-name"><%= @user.first_name.capitalize %>  <%= @user.last_name.capitalize %></h5>
+              </div>
+              <hr class="featurette-divider">
+              <div class="details-title">
+              <h3>E-mail</h3>
+              </div>
+              <div class="user-mail">
+                <h5><%= @user.email %></h5>
+              </div>
+              <hr class="featurette-divider">
+              <div class="details-title">
+                <h3>Mora About Me</h3>
+              </div>
+              <div class="personal-details">asdkjha jçhç jfhdkjsh öhjöhasç ajhsjahdsj hdjasjhasda dsahdjashjd ajshjad aj sda as daf ds fsd fsdha</div>
+              <hr class="featurette-divider">
+
+              <div class="edit-class">
+              <p><a class="btn-go pt-2 pb-2" href="/users/edit" role="button" id="edit-btn">Edit Profile</a></p>
+              </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+  <hr class="featurette-divider">
