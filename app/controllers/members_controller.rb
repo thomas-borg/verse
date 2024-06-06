@@ -4,6 +4,8 @@ class MembersController < ApplicationController
     @activity = Activity.find(params[:activity_id])
     @member = Member.new
     @member.activity = @activity
+    @member.accepted = false
+
     @member.user = current_user
 
     if @member.save!
