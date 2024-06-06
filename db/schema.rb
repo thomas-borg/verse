@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_04_103211) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_06_101527) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_103211) do
     t.integer "group_size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["sport_id"], name: "index_activities_on_sport_id"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
@@ -60,9 +62,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_103211) do
     t.bigint "activity_id", null: false
     t.bigint "user_id", null: false
     t.text "comment"
-    t.boolean "accepted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "accepted", default: false
     t.index ["activity_id"], name: "index_members_on_activity_id"
     t.index ["user_id"], name: "index_members_on_user_id"
   end
