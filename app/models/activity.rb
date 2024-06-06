@@ -1,7 +1,8 @@
 class Activity < ApplicationRecord
   belongs_to :user
   belongs_to :sport
-  has_many :users, through: :member
+  has_many :members
+  has_many :users, through: :members
 
   validates :location, presence: true
   validates :name, presence: true

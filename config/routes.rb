@@ -9,8 +9,9 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'pages#dashboard'
   resources :activities, only: [:new, :create, :index, :show] do
-    resources :members, only: [:create]
+    resources :members, only: [:create, :update, :destroy]
   end
+  # resources :members
   # Defines the root path route ("/")
   # root "posts#index"
   get 'profile', to: 'pages#profile'
