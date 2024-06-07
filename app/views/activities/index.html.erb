@@ -25,11 +25,11 @@
     <% @activities.each_with_index do |activity, index| %>
       <a href="/activities/<%= activity.id %>" style="text-decoration: none;" class="card-product d-flex">
         <i class="fa-solid fa-table-tennis-paddle-ball fa-2xl"></i>
-        <div class="card-product-infos d-flex flex-column">
-          <span class="text-black fw-bold"><%= activity.name %></span>
+        <div class="card-product-infos d-flex flex-column ml-2">
+          <span class="activity-title"><%= activity.name %></span>
           <div class="d-flex align-items-center">
-            <p><%= activity.location %></p>
-            <button class="btn btn-primary btn-sm rounded-5" style="height: 50px;">Open</button>
+            <p class="activity-location p-1"><%= activity.location.split(",")[2] %>, <%= activity.location.split(",")[3] %>, <%= activity.location.split(",")[4] %></p>
+            <button class="btn-see-more"><i class="fa-solid fa-angles-right"></i></button>
           </div>
         </div>
       </a>
