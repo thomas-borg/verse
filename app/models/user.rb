@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :activities
   has_many :members
+  has_many :chatrooms
+
 
   validates :username, presence: true
   validates :first_name, presence: true

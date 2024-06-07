@@ -1,0 +1,6 @@
+<h1> Your Messages</h1>
+
+
+<% @chatrooms.each do |chatroom| %>
+  <%= link_to "chatroom", chatroom_path(chatroom) %>
+<% end %>
