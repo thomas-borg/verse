@@ -37,7 +37,7 @@ class ActivitiesController < ApplicationController
 
   def show
     @activity = Activity.find(params[:id])
-
+    @is_member = Member.where(user: current_user, activity: params[:id])
     if current_user
       @member = Member.new
     end
