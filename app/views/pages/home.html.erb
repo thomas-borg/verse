@@ -12,5 +12,15 @@
           <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
         <% end %>
       </div>
+      <div class="login-signin mt-5">
+        <% unless user_signed_in? %>
+          <div class="signinbtn d-flex justify-content-center my-3">
+            <a class="home-link"> <%= link_to "Login", href="/users/sign_in", class: "btn-go", id:"btn-log" %></a>
+          </div>
+          <div class="signupbtn d-flex justify-content-center mt-3">
+            <a class="home-link"> <%= link_to "Sign up", href="/users/sign_up", class: "btn-go", id:"btn-sgn" %></a>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
