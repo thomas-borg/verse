@@ -28,7 +28,7 @@
         <div class="card-product-infos d-flex flex-column ml-2">
           <span class="activity-title"><%= activity.name %></span>
           <div class="d-flex align-items-center">
-            <p class="activity-location p-1"><%= activity.short_address %></p>
+            <p class="activity-location p-1"><%= activity.location.split(",")[2] %>, <%= activity.location.split(",")[3] %>, <%= activity.location.split(",")[4] %></p>
             <button class="btn-see-more"><i class="fa-solid fa-angles-right"></i></button>
           </div>
         </div>
