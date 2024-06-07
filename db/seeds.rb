@@ -208,10 +208,9 @@ puts "------- Creating Activities -------"
 
   chatgpt_response = client.chat(parameters: {
     model: "gpt-3.5-turbo",
-    messages: [{ role: "user", content: "Based on this address: #{address}, just return the name of the suburb, without any description or explaination"}]
+    messages: [{ role: "user", content: "Based on this address: #{address}, returning the suburb only, without your own description or explaination. "}]
   })
   suburb = chatgpt_response["choices"][0]["message"]["content"]
-
 
   # ----- Generate Random Sentence -----
   # levels = ["Beginner", "Intermediate", "Advanced", "Pro", "Recreational"]
@@ -238,5 +237,5 @@ puts "------- Creating Activities -------"
     location: address,
     description: description,
     date_time: time)
-  puts "#{activity.name} created"
+  puts "#{activity.name} created, shortaddress: #{activity.suburb}"
 end
