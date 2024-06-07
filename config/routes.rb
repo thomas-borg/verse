@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   get 'dashboard', to: 'pages#dashboard'
-  resources :activities, only: [:index, :show] do
-    resources :members, only: [:create]
+  resources :activities, only: [:new, :create, :index, :show] do
+    resources :members, only: [:create, :update, :destroy]
   end
+  # resources :members
   # Defines the root path route ("/")
   # root "posts#index"
   get 'profile', to: 'pages#profile'

@@ -9,7 +9,14 @@ class PagesController < ApplicationController
       @user = current_user
       @activities = Activity.where(user: @user)
       @upcomings = Member.where(user: @user, accepted: true)
-      @requests = Member.where(user: @user, accepted: false)
+
+      # @requests = []
+      # @activities.each do | activity |
+      #   @requests << Member.find(activity: activity, accepted: false)
+      # end
+
+      @requests = Member.where(accepted: false).joins(:activity).where(activities: { user_id: @user.id })
+      # raise
     else
       redirect_to new_user_session_path, alert: "Vous devez être connecté pour accéder à cette page."
     end

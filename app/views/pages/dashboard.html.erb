@@ -11,9 +11,19 @@
         <div><%= request.activity.location[0,20] + "..."  %> - <%= request.activity.date_time %></div>
       </div>
     </div>
-    <a href="/activities/<%= request.activity.id %>">
-      <button class="button"> <strong>Open</strong></button>
-    </a>
+    <div class="d-flex flex-row">
+
+      <%= link_to '<i class="fa-regular fa-circle-check px-2"></i>'.html_safe,
+      activity_member_url(request.activity, request),
+      data: { "turbo-method": :patch },
+      class: "icon-response" %>
+
+      <%= link_to '<i class="fa-regular fa-circle-xmark px-2"></i>'.html_safe,
+      activity_member_url(request.activity, request),
+      data: { "turbo-method": :delete },
+      class: "icon-response" %>
+
+    </div>
   </div>
   <%end %>
 
