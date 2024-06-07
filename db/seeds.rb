@@ -214,7 +214,7 @@ puts "------- Creating Activities -------"
 
   chatgpt_response = client.chat(parameters: {
     model: "gpt-3.5-turbo",
-    messages: [{ role: "user", content: "Give me the latitude for #{address}"}]
+    messages: [{ role: "user", content: "Give me the longitude for #{address}"}]
   })
   longitude = chatgpt_response["choices"][0]["message"]["content"]
 
