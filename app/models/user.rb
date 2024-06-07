@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :activities
   has_many :members
+  has_one_attached :avatar
 
   validates :username, presence: true
   validates :first_name, presence: true
