@@ -90,3 +90,5 @@ end
 gem "pg_search", "~> 2.3"
 
 gem "geocoder"
+
+gem "ruby-openai"
