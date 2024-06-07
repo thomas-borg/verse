@@ -1,24 +1,24 @@
 class Activity < ApplicationRecord
-  after_save :set_short_address, if: -> { saved_change_to_location? }
+  # after_save :set_short_address, if: -> { saved_change_to_location? }
 
-  def short_address
-    if super.blank?
-      set_short_address
-    else
-      super
-    end
-  end
+  # def short_address
+  #   if super.blank?
+  #     set_short_address
+  #   else
+  #     super
+  #   end
+  # end
 
-  def set_short_address
-    client = OpenAI::Client.new
-    chatgpt_response = client.chat(parameters: {
-      model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: "Based on this address: #{location}, tell me the suburb first and then the city (not postcode), separated by a comma, without any description or explaination. e.g. 'Joordan, Amsterdam', 'Amsterdam-Zuid, Amsterdam', 'Nieuw-West, Amsterdam' "}]
-    })
-    new_content = chatgpt_response["choices"][0]["message"]["content"]
-    update(short_address: new_content)
-    return new_content
-  end
+  # def set_short_address
+  #   client = OpenAI::Client.new
+  #   chatgpt_response = client.chat(parameters: {
+  #     model: "gpt-3.5-turbo",
+  #     messages: [{ role: "user", content: "Based on this address: #{location}, tell me the suburb first and then the city (not postcode), separated by a comma, without any description or explaination. e.g. 'Joordan, Amsterdam', 'Amsterdam-Zuid, Amsterdam', 'Nieuw-West, Amsterdam' "}]
+  #   })
+  #   new_content = chatgpt_response["choices"][0]["message"]["content"]
+  #   update(short_address: new_content)
+  #   return new_content
+  # end
 
   belongs_to :user
   belongs_to :sport
