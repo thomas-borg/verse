@@ -208,7 +208,19 @@ puts "------- Creating Activities -------"
 
   chatgpt_response = client.chat(parameters: {
     model: "gpt-3.5-turbo",
-    messages: [{ role: "user", content: "Based on this address: #{address}, returning the suburb only, without your own description or explaination. "}]
+    messages: [{ role: "user", content: "Give me the latitude for #{address}"}]
+  })
+  latitude = chatgpt_response["choices"][0]["message"]["content"]
+
+  chatgpt_response = client.chat(parameters: {
+    model: "gpt-3.5-turbo",
+    messages: [{ role: "user", content: "Give me the latitude for #{address}"}]
+  })
+  longitude = chatgpt_response["choices"][0]["message"]["content"]
+
+  chatgpt_response = client.chat(parameters: {
+    model: "gpt-3.5-turbo",
+    messages: [{ role: "user", content: "Based on this address: #{address}, returning the suburb only (no postcode), without your own description or explaination. The suburb should be more specific than Amsterdam, e.g. Joordan, Amsterdam-Zuid, Nieuw-West"}]
   })
   suburb = chatgpt_response["choices"][0]["message"]["content"]
 
@@ -236,6 +248,8 @@ puts "------- Creating Activities -------"
     sport: Sport.find(sport_id),
     location: address,
     description: description,
+    latitude: latitude,
+    longitude: longitude,
     date_time: time)
-  puts "#{activity.name} created, shortaddress: #{activity.suburb}"
+  puts "#{activity.name} created"
 end

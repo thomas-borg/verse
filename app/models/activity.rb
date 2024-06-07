@@ -13,7 +13,7 @@ class Activity < ApplicationRecord
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
       model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: "Based on this address: #{location}, returning the suburb first and then the city (not postcode), separated by a comma, without any description or explaination. eg. Nieuw-West, Amsterdam. "}]
+      messages: [{ role: "user", content: "Based on this address: #{location}, tell me the suburb first and then the city (not postcode), separated by a comma, without any description or explaination. e.g. 'Joordan, Amsterdam', 'Amsterdam-Zuid, Amsterdam', 'Nieuw-West, Amsterdam' "}]
     })
     new_content = chatgpt_response["choices"][0]["message"]["content"]
     update(short_address: new_content)
