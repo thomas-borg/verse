@@ -7,6 +7,7 @@ class MembersController < ApplicationController
     @member.user = current_user
 
     if @member.save!
+      flash[:notice] = "Request sent!"
       redirect_to dashboard_path
     end
   end
