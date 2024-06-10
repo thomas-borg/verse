@@ -20,8 +20,9 @@
 .footer-nav {
   display: flex;
   justify-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  margin-right: 16px;
 }
 
 .foot_item {
@@ -33,7 +34,7 @@
 }
 
 .logos-add-activity{
-  width: 50px;
+  width: 55px;
 }
 
 .logos-messages {
@@ -50,7 +51,5 @@
 }
 
 .logos-login {
-
   width: 50px;
-
 }
