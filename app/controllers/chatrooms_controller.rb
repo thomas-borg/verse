@@ -1,9 +1,10 @@
 class ChatroomsController < ApplicationController
 
   def index
-
-    @chatrooms = Chatroom.where(user: current_user) if user_signed_in?
-
+    if user_signed_in?
+      @activities = Activity.where(user: current_user)
+      @upcomings = Member.where(user: current_user, accepted: true)
+    end
   end
 
   def show
