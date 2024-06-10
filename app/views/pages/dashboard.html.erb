@@ -39,12 +39,12 @@
                   </div>
                   <div class="button-apply pt-3">
                     <div class="d-flex flex-row">
-                      <%= link_to '<i class="fa fa-check-circle ps-5" style="font-size:30px;color:green"></i>'.html_safe,
+                      <%= link_to '<i class="fa fa-check-circle ps-3" style="font-size:30px;color:green"></i>'.html_safe,
                       activity_member_url(request.activity, request),
                       data: { "turbo-method": :patch },
                       class: "icon-response" %>
 
-                      <%= link_to '<i class="fa fa-close ps-5" style="font-size:30px;color:red"></i>'.html_safe,
+                      <%= link_to '<i class="fa fa-close ps-3" style="font-size:30px;color:red"></i>'.html_safe,
                       activity_member_url(request.activity, request),
                       data: { "turbo-method": :delete },
                       class: "icon-response" %>
