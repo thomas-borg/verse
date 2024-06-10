@@ -1,69 +1,74 @@
 <body style="background-color:#E5E5E5;">
 
-<div class="container d-flex flex-column">
-  <h3 class="text-center mt-4"><strong>Requests</strong></h3>
-  <% @requests.each do |request| %>
-  <div class="requests border border-white p-2 m-2 rounded d-flex align-items-center justify-content-between bg-white">
-    <div class="d-flex align-items-stretch">
-      <div class="circle"></div>
-      <div class="details d-flex flex-column ps-2">
-        <div><strong> <%= request.activity.name %></strong></div>
-        <div><%= request.activity.location[0,20] + "..."  %> - <%= request.activity.date_time %></div>
+<% if @requests.empty? == false %>
+  <div class="container d-flex flex-column">
+    <h3 class="text-center mt-4"><strong>Requests</strong></h3>
+    <% @requests.each do |request| %>
+    <div class="requests border border-white p-2 m-2 rounded d-flex align-items-center justify-content-between bg-white">
+      <div class="d-flex align-items-stretch">
+        <div class="circle"></div>
+        <div class="details d-flex flex-column ps-2">
+          <div><strong> <%= request.activity.name %></strong></div>
+          <div><%= request.activity.location[0,20] + "..."  %> - <%= request.activity.date_time %></div>
+        </div>
+      </div>
+      <div class="d-flex flex-row">
+
+        <%= link_to '<i class="fa-regular fa-circle-check px-2"></i>'.html_safe,
+        activity_member_url(request.activity, request),
+        data: { "turbo-method": :patch },
+        class: "icon-response" %>
+
+        <%= link_to '<i class="fa-regular fa-circle-xmark px-2"></i>'.html_safe,
+        activity_member_url(request.activity, request),
+        data: { "turbo-method": :delete },
+        class: "icon-response" %>
+
       </div>
     </div>
-    <div class="d-flex flex-row">
-
-      <%= link_to '<i class="fa-regular fa-circle-check px-2"></i>'.html_safe,
-      activity_member_url(request.activity, request),
-      data: { "turbo-method": :patch },
-      class: "icon-response" %>
-
-      <%= link_to '<i class="fa-regular fa-circle-xmark px-2"></i>'.html_safe,
-      activity_member_url(request.activity, request),
-      data: { "turbo-method": :delete },
-      class: "icon-response" %>
-
-    </div>
+    <%end %>
   </div>
-  <%end %>
+<%end %>
 
-</div>
-
-<div class="container d-flex flex-column">
-  <h3 class="text-center mt-4"><strong>Upcoming</strong></h3>
-  <%  @upcomings.each do |upcoming| %>
-    <div class="requests border border-white p-2 m-2 rounded d-flex bg-white">
-      <div class="circle pe-8" style="width:80px; height:80px;"></div>
-      <div class="d-flex flex-column ps-3">
-        <div><strong> <%= upcoming.activity.name  %></strong></div>
-        <div><%= upcoming.activity.location[0, 22] + "..."  %> - <%= upcoming.activity.date_time  %></div>
-        <div class="pt-2">
-          <a href="/activities/<%= upcoming.activity.id %>">
-            <button class="button"> <strong>Details</strong></button>
-          </a>
-          <button class="button"> <strong>Chat</strong></button>
+<% if @upcomings.empty? == false %>
+  <div class="container d-flex flex-column">
+    <h3 class="text-center mt-4"><strong>Upcoming</strong></h3>
+    <%  @upcomings.each do |upcoming| %>
+      <div class="requests border border-white p-2 m-2 rounded d-flex bg-white">
+        <div class="circle pe-8" style="width:80px; height:80px;"></div>
+        <div class="d-flex flex-column ps-3">
+          <div><strong> <%= upcoming.activity.name  %></strong></div>
+          <div><%= upcoming.activity.location[0, 22] + "..."  %> - <%= upcoming.activity.date_time  %></div>
+          <div class="pt-2">
+            <a href="/activities/<%= upcoming.activity.id %>">
+              <button class="button"> <strong>Details</strong></button>
+            </a>
+            <button class="button"> <strong>Chat</strong></button>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>
 
-<div class="container d-flex flex-column">
-  <h3 class="text-center mt-4"><strong>Your events</strong></h3>
-  <%  @activities.each do |activity| %>
-    <div class="requests border border-white p-2 m-2 rounded d-flex bg-white">
-      <div class="circle pe-8" style="width:80px; height:80px;"></div>
-      <div class="d-flex flex-column ps-3">
-        <div><strong> <%= activity.name  %></strong></div>
-        <div><%= activity.location[0, 22] + "..."  %> - <%= activity.date_time  %></div>
-        <div class="pt-2">
-          <a href="/activities/<%= activity.id %>">
-            <button class="button"> <strong>Details</strong></button>
-          </a>
-          <button class="button"> <strong>Chat</strong></button>
+<% if @activities.empty? == false %>
+  <div class="container d-flex flex-column">
+    <h3 class="text-center mt-4"><strong>Your events</strong></h3>
+    <%  @activities.each do |activity| %>
+      <div class="requests border border-white p-2 m-2 rounded d-flex bg-white">
+        <div class="circle pe-8" style="width:80px; height:80px;"></div>
+        <div class="d-flex flex-column ps-3">
+          <div><strong> <%= activity.name  %></strong></div>
+          <div><%= activity.location[0, 22] + "..."  %> - <%= activity.date_time  %></div>
+          <div class="pt-2">
+            <a href="/activities/<%= activity.id %>">
+              <button class="button"> <strong>Details</strong></button>
+            </a>
+            <button class="button"> <strong>Chat</strong></button>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<%end %>
 </body>

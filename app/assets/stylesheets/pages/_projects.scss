@@ -4,10 +4,21 @@
   }
 
   span {
-    margin-left: 8px;
+    margin-left: 12px;
   }
 }
 
 .fa-2xl {
-  line-height: 5;
+  line-height: 3;
+}
+
+.activity-title {
+  font-family: $headers-font;
+  color: $dark-blue;
+  font-weight: bold;
+}
+
+.activity-location {
+  font-family: $body-font;
+  color: $navy-blue;
 }
