@@ -417,31 +417,42 @@ puts "--------- Creating users -------"
 
 # ----------- users seeding -------
 users = [
-  { username: "lucas.silva", first_name: "lucas", last_name: "silva", email: "lucas@gmail.com", password: "testtest" },
-  { username: "ahmed.musa", first_name: "ahmed", last_name: "musa", email: "ahmed@gmail.com", password: "testtest" },
-  { username: "tom.borg", first_name: "tom", last_name: "borg", email: "tom@gmail.com", password: "testtest" },
-  { username: "theo.comlan", first_name: "theo", last_name: "comlan", email: "theo@gmail.com", password: "testtest" },
-  { username: "julia.rodriguez", first_name: "julia", last_name: "rodriguez", email: "julia@gmail.com", password: "testtest" },
-  { username: "kwame.okafor", first_name: "kwame", last_name: "okafor", email: "kwame@gmail.com", password: "testtest" },
-  { username: "mei.chen", first_name: "mei", last_name: "chen", email: "mei@gmail.com", password: "testtest" },
-  { username: "arjun.iyer", first_name: "arjun", last_name: "iyer", email: "arjun@gmail.com", password: "testtest" },
-  { username: "yumi.kim", first_name: "yumi", last_name: "kim", email: "yumi@gmail.com", password: "testtest" },
-  { username: "raj.patel", first_name: "raj", last_name: "patel", email: "raj@gmail.com", password: "testtest" },
-  { username: "luisa.alvarez", first_name: "luisa", last_name: "alvarez", email: "luisa@gmail.com", password: "testtest" },
-  { username: "chinedu.nwosu", first_name: "chinedu", last_name: "nwosu", email: "chinedu@gmail.com", password: "testtest" },
-  { username: "hana.matsumoto", first_name: "hana", last_name: "matsumoto", email: "hana@gmail.com", password: "testtest" },
-  { username: "rodrigo.fernandez", first_name: "rodrigo", last_name: "fernandez", email: "rodrigo@gmail.com", password: "testtest" },
-  { username: "david.garcia", first_name: "david", last_name: "garcia", email: "david@gmail.com", password: "testtest" },
-  { username: "olivia.brown", first_name: "olivia", last_name: "brown", email: "olivia@gmail.com", password: "testtest" },
-  { username: "michael.wilson", first_name: "michael", last_name: "wilson", email: "michael@gmail.com", password: "testtest" },
-  { username: "isabella.moore", first_name: "isabella", last_name: "moore", email: "isabella@gmail.com", password: "testtest" },
-  { username: "william.taylor", first_name: "william", last_name: "taylor", email: "william@gmail.com", password: "testtest" }
+  { username: "adrian.schober", first_name: "adrian", last_name: "schober", email: "adrian@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032085/development/adrian_qu3a17.jpg" },
+  { username: "ahmed.musa", first_name: "ahmed", last_name: "musa", email: "ahmed@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032083/development/ahmed_ahsvfv.png" },
+  { username: "anyelle.zanatta", first_name: "anyelle", last_name: "zanatta", email: "anyelle@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032082/development/anyelle_uzihgg.jpg" },
+  { username: "ayax.garcia", first_name: "ayax", last_name: "garcia", email: "ayax@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032080/development/ayax_m6jrin.jpg" },
+  { username: "david.ponte", first_name: "david", last_name: "ponte", email: "david@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032057/development/david_aaqzwl.jpg" },
+  { username: "eoan.odea", first_name: "eoan", last_name: "o'dea", email: "eoan@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032078/development/eoan_bxj045.jpg" },
+  { username: "ezzeldin.osman", first_name: "ezzeldin", last_name: "osman", email: "ezzeldin@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032077/development/ezzeldin_ysv4sh.jpg" },
+  { username: "francesca.santoriello", first_name: "francesca", last_name: "santoriello", email: "francesca@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032075/development/francesca_sb4spj.jpg" },
+  { username: "franck.dirat", first_name: "franck", last_name: "dirat", email: "franck@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032073/development/franck_pb7yj2.png" },
+  { username: "joao.mateus", first_name: "joao", last_name: "mateus", email: "joao@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032072/development/Joao_i8a3ai.jpg" },
+  { username: "lucas.silva", first_name: "lucas", last_name: "silva", email: "lucas@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032731/development/wkah7qfkrvueurucuday.png" },
+  { username: "marie.auer", first_name: "marie", last_name: "auer", email: "marie@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032070/development/marie_uqrdqo.png" },
+  { username: "matilda.fritzmeier", first_name: "matilda", last_name: "fritzmeier", email: "matilda@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032068/development/matilda_evluqr.jpg" },
+  { username: "neve.pancic", first_name: "neve", last_name: "pancic", email: "neve@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032067/development/neve_idfvyv.jpg" },
+  { username: "nui.suriya", first_name: "nui", last_name: "suriya", email: "nui@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032065/development/nui_bqhpgl.png" },
+  { username: "parikaya.nanda", first_name: "parikaya", last_name: "nanda", email: "parikaya@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032064/development/parikaya_zzoun3.png" },
+  { username: "pato.herrero", first_name: "pato", last_name: "herrero", email: "pato@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032062/development/pato_dgazyd.jpg" },
+  { username: "roel.dejong", first_name: "roel", last_name: "dejong", email: "roel@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032061/development/roel_te3ecz.jpg" },
+  { username: "saul.goldman", first_name: "saul", last_name: "goldman", email: "saul@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032060/development/saul_cwdize.jpg" },
+  { username: "theo.comlan", first_name: "theo", last_name: "comlan", email: "theo@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032059/development/theo_pejybb.png" },
+  { username: "tom.borg", first_name: "tom", last_name: "borg", email: "tom@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032329/development/auozlljjnfcxk4eixcjn.jpg" },
+
 ]
 
 users.each do |user|
-  User.create(user)
-  puts "#{user[:username]} created"
+  new_user = User.new(user)
+  file = URI.open(user[:image_url])
+  new_user.avatar.attach(io: file, filename: "#{user[:first_name]}.jpg", content_type: "image/jpg")
+  new_user.save
+  puts "#{new_user[:username]} created"
 end
+
+  # file = URI.open(sport[:image_url])
+  # new_sport.photo.attach(io: file, filename: "#{sport}.jpg", content_type: "image/jpg")
+  # new_sport.save
+
 
 def mach_sport(sport_nl)
   if sport_nl == "VOETBAL"
@@ -555,7 +566,7 @@ all_activities = data['features']
                               date_time: date_time)
                               # date_time: Faker::Date.between(from: Date.today, to: 1.week.from_now))
   activity.save
-  puts "#{activity.name} create"
+  puts "#{activity.name} created"
 end
 
 puts "Finished!"

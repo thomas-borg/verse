@@ -80,16 +80,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_10_101756) do
     t.index ["user_id"], name: "index_members_on_user_id"
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.string "content"
-    t.bigint "user_id", null: false
-    t.bigint "chatroom_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
   create_table "sports", force: :cascade do |t|
     t.string "name"
     t.string "category"
@@ -124,6 +114,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_10_101756) do
   add_foreign_key "chatrooms", "users"
   add_foreign_key "members", "activities"
   add_foreign_key "members", "users"
-  add_foreign_key "messages", "chatrooms"
-  add_foreign_key "messages", "users"
 end
