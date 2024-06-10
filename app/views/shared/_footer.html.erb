@@ -6,25 +6,22 @@
         <div class="footer-nav pt-2">
           <% if user_signed_in? %>
 
-          <a class="foot-item">
-            <a class="foot-link" aria-current="page"  href="/"><%= image_tag("home-64.png",  :alt => "logos", :class => "logos-home") %></a>
-          </a>
-          <a class="foot-item">
-            <a class="foot-link" aria-current="page"  href="/dashboard"><%= image_tag("dashboard-48.png",  :alt => "logos", :class => "logos-dashboard") %></a>
-          </a>
-          <a class="foot-item" id="add-button">
-            <a class="foot-link" aria-current="page"  href="/activities/new"> <%= image_tag("add-64.png",  :alt => "logos", :class => "logos-add-activity") %></a>
-          </a>
-          <a class="foot-item">
-            <a class="foot-link" aria-current="page" href="/chatrooms"><%= image_tag("messages-60.png",  :alt => "logos", :class => "logos-messages") %></a>
-          </a>
-          <a  href="#" class="foot-item" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag("user-52.png",  :alt => "dropdown menu", :class => "logos-profile") %></a>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="footerDropdown">
-              <a class="link-item  text-decoration-none"><%= link_to "Profile", "/profile", class: "dropdown-item" %></a>
-              <a class="link-item  text-decoration-none"><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %></a>
-            </div>
+            <a class="foot-item">
+              <a class="foot-link" aria-current="page"  href="/"><%= image_tag("home-64.png",  :alt => "logos", :class => "logos-home") %></a>
+            </a>
+            <a class="foot-item">
+              <a class="foot-link" aria-current="page"  href="/dashboard"><%= image_tag("dashboard-48.png",  :alt => "logos", :class => "logos-dashboard") %></a>
+            </a>
+            <a class="foot-item" id="add-button">
+              <a class="foot-link" aria-current="page"  href="/activities/new"> <%= image_tag("add-64.png",  :alt => "logos", :class => "logos-add-activity") %></a>
+            </a>
+            <a class="foot-item">
+              <a class="foot-link" aria-current="page" href="/chatrooms"><%= image_tag("messages-60.png",  :alt => "logos", :class => "logos-messages") %></a>
+            </a>
+            <a class="foot-item">
+              <a class="foot-link" aria-current="page" href="/profile">  <%= image_tag("user-52.png",  :alt => "logos", :class => "logos-profile") %></a>
+            </a>
+
           <% else %>
             <p></p>
           <% end %>
