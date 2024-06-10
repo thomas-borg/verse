@@ -41,6 +41,12 @@ class ActivitiesController < ApplicationController
     if current_user
       @member = Member.new
     end
+    @markers = [{
+      lat: @activity.latitude,
+      lng: @activity.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: { activity: @activity }),
+      marker_html: render_to_string(partial: "marker", locals: { activity: @activity })
+    }]
   end
 
 
