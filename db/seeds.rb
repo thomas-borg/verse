@@ -123,7 +123,7 @@ puts "Finished!"
 
 ######################################################################################################################
 ######################################################################################################################
-######################################################################################################################
+#--------------------------------- SEED ATTEMPT 1 with AI ----------------------------------
 ######################################################################################################################
 ######################################################################################################################
 
@@ -253,3 +253,278 @@ puts "Finished!"
 #     date_time: time)
 #   puts "#{activity.name} created"
 # end
+
+
+
+######################################################################################################################
+######################################################################################################################
+#--------------------------------- SEED ATTEMPT 2 ----------------------------------
+######################################################################################################################
+######################################################################################################################
+
+
+
+
+# def mach_sport(sport_nl)
+#   if sport_nl == "VOETBAL"
+#     return "Foot"
+#   elsif sport_nl == "OVERIG"
+#     return "Others"
+#   elsif sport_nl == "JEUDEBOULES"
+#     return "Petanque"
+#   elsif sport_nl == "TAFELTENNIS"
+#     return "Ping pong"
+#   elsif sport_nl == "BASKETBAL"
+#     return "Basketball"
+#   end
+#   return sport_nl.downcase.capitalize
+# end
+# puts "Seeding start"
+
+# puts "------- Destroying All activities -------"
+# Activity.destroy_all
+# User.destroy_all
+# Sport.destroy_all
+# puts "--------- Creating users -------"
+
+# # ----------- User Seeding -------
+# users = [
+#   { username: "lucas.silva", first_name: "lucas", last_name: "silva", email: "lucas@gmail.com", password: "testtest" },
+#   { username: "ahmed.musa", first_name: "ahmed", last_name: "musa", email: "ahmed@gmail.com", password: "testtest" },
+#   { username: "tom.borg", first_name: "tom", last_name: "borg", email: "tom@gmail.com", password: "testtest" },
+#   { username: "theo.comlan", first_name: "theo", last_name: "comlan", email: "theo@gmail.com", password: "testtest" },
+#   { username: "julia.rodriguez", first_name: "julia", last_name: "rodriguez", email: "julia@gmail.com", password: "testtest" },
+#   { username: "kwame.okafor", first_name: "kwame", last_name: "okafor", email: "kwame@gmail.com", password: "testtest" },
+#   { username: "mei.chen", first_name: "mei", last_name: "chen", email: "mei@gmail.com", password: "testtest" },
+#   { username: "arjun.iyer", first_name: "arjun", last_name: "iyer", email: "arjun@gmail.com", password: "testtest" },
+#   { username: "yumi.kim", first_name: "yumi", last_name: "kim", email: "yumi@gmail.com", password: "testtest" },
+#   { username: "raj.patel", first_name: "raj", last_name: "patel", email: "raj@gmail.com", password: "testtest" },
+#   { username: "luisa.alvarez", first_name: "luisa", last_name: "alvarez", email: "luisa@gmail.com", password: "testtest" },
+#   { username: "chinedu.nwosu", first_name: "chinedu", last_name: "nwosu", email: "chinedu@gmail.com", password: "testtest" },
+#   { username: "hana.matsumoto", first_name: "hana", last_name: "matsumoto", email: "hana@gmail.com", password: "testtest" },
+#   { username: "rodrigo.fernandez", first_name: "rodrigo", last_name: "fernandez", email: "rodrigo@gmail.com", password: "testtest" },
+#   { username: "david.garcia", first_name: "david", last_name: "garcia", email: "david@gmail.com", password: "testtest" },
+#   { username: "olivia.brown", first_name: "olivia", last_name: "brown", email: "olivia@gmail.com", password: "testtest" },
+#   { username: "michael.wilson", first_name: "michael", last_name: "wilson", email: "michael@gmail.com", password: "testtest" },
+#   { username: "isabella.moore", first_name: "isabella", last_name: "moore", email: "isabella@gmail.com", password: "testtest" },
+#   { username: "william.taylor", first_name: "william", last_name: "taylor", email: "william@gmail.com", password: "testtest" }
+# ]
+
+# users.each do |user|
+#   User.create(user)
+#   puts "#{user[:username]} created"
+# end
+
+# # ----------- Sports Seed -------
+
+# sports = [
+#   { name: "Soccer", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/soccer.jpg" },
+#   { name: "Basketball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/basketball.jpg" },
+#   { name: "Baseball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/baseball.jpg" },
+#   { name: "Tennis", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/tennis.jpg" },
+#   { name: "Volleyball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/volleyball.jpg" },
+#   { name: "Cricket", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/cricket.jpg" },
+#   { name: "Rugby", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/rugby.jpg" },
+#   { name: "Hockey", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/hockey.jpg" },
+#   { name: "Golf", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/golf.jpg" },
+#   { name: "Swimming", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/swimming.jpg" },
+#   { name: "Cycling", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/cycling.jpg" },
+#   { name: "Boxing", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/boxing.jpg" },
+#   { name: "Wrestling", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/wrestling.jpg" },
+#   { name: "Tennis", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/tennis.jpg" },
+#   { name: "Badminton", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/badminton.jpg" },
+#   { name: "Table Tennis", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/table_tennis.jpg" },
+#   { name: "Basketball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/basketball.jpg" },
+#   { name: "American Football", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/american_football.jpg" },
+#   { name: "Softball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/softball.jpg" },
+#   { name: "Handball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/handball.jpg" }
+# ]
+
+# sports.each do |sport|
+#   Sport.create(sport)
+#   puts "#{sport[:name]} created"
+# end
+
+
+# puts "------- Creating Activities -------"
+# # ----------- activities seeding -------
+# # ----API to get the sport field of amsterdam -----
+# uri = URI.parse("https://maps.amsterdam.nl/open_geodata/geojson_lnglat.php?KAARTLAAG=SPORT_OPENBAAR&THEMA=sport")
+# response = Net::HTTP.get_response(uri)
+# data = JSON.parse(response.body)
+# all_activities = data['features']
+# # selectie = ["BASKETBAL", "TENNIS", "VOETBAL", "OVERIG", "SKATE", "FITNESS", "JEUDEBOULES", "TAFELTENNIS"]
+# 25.times do
+#   index = rand(0..950)
+#   the_activity = all_activities[index]
+#   while (the_activity == nil) || (the_activity["properties"]["Omschrijving"] == "") || (the_activity["properties"]["SÉLECTIE"] == "")
+#     index = rand(0..950)
+#     the_activity = all_activities[index]
+#   end
+
+#   lat = the_activity['geometry']['coordinates'][1]
+#   lng = the_activity['geometry']['coordinates'][0]
+#   # ----- generate random sentense for name -----
+#   game_type = ['match', 'tournament', 'league', 'season', 'training', 'championship', 'competition', 'game']
+#   level = ["beginner", "intermediate", "advanced", "pro", "recreational"]
+#   type = ["3 vs 3", "4 vs 4", "5 vs 5", "1 vs 1", "11 vs 11"]
+#   the_sport = (mach_sport)(the_activity["properties"]["SELECTIE"])
+#   sentence = "#{type.sample} #{the_sport} #{game_type.sample} for #{level.sample} "
+#   # ---- another API to get the location address -----
+#   uri = URI.parse("https://nominatim.openstreetmap.org/reverse?format=json&lat=#{lat}&lon=#{lng}")
+#   response = Net::HTTP.get_response(uri)
+#   the_location = JSON.parse(response.body)
+#   address = the_location["display_name"]
+#   desc = "#{type.sample} #{the_sport} #{game_type.sample} for #{level.sample}. #{the_activity['properties']['Omschrijving']}. #{Faker::Lorem.paragraph}"
+
+#   activity = Activity.create!(name: sentence,
+#                               user: User.all.sample,
+#                               sport: Sport.find_by(name: the_sport),
+#                               location: address,
+#                               description: desc,
+#                               date_time: Faker::Date.between(from: Date.today, to: 1.week.from_now))
+#   activity.save
+#   puts "#{activity.name} create"
+# end
+
+# puts "Finished!"
+
+
+
+
+
+
+
+######################################################################################################################
+######################################################################################################################
+#--------------------------------- SEED ATTEMPT 3 ----------------------------------
+######################################################################################################################
+######################################################################################################################
+
+
+
+
+
+
+# def mach_sport(sport_nl)
+#   if sport_nl == "VOETBAL"
+#     return "Foot"
+#   elsif sport_nl == "OVERIG"
+#     return "Others"
+#   elsif sport_nl == "JEUDEBOULES"
+#     return "Petanque"
+#   elsif sport_nl == "TAFELTENNIS"
+#     return "Ping pong"
+#   elsif sport_nl == "BASKETBAL"
+#     return "Basketball"
+#   end
+#   return sport_nl.downcase.capitalize
+# end
+# puts "Seeding start"
+
+# puts "------- Destroying All activities -------"
+# Activity.destroy_all
+# User.destroy_all
+# Sport.destroy_all
+# puts "--------- Creating users -------"
+
+# # ----------- users seeding -------
+# users = [
+#   { username: "lucas.silva", first_name: "lucas", last_name: "silva", email: "lucas@gmail.com", password: "testtest" },
+#   { username: "ahmed.musa", first_name: "ahmed", last_name: "musa", email: "ahmed@gmail.com", password: "testtest" },
+#   { username: "tom.borg", first_name: "tom", last_name: "borg", email: "tom@gmail.com", password: "testtest" },
+#   { username: "theo.comlan", first_name: "theo", last_name: "comlan", email: "theo@gmail.com", password: "testtest" },
+#   { username: "julia.rodriguez", first_name: "julia", last_name: "rodriguez", email: "julia@gmail.com", password: "testtest" },
+#   { username: "kwame.okafor", first_name: "kwame", last_name: "okafor", email: "kwame@gmail.com", password: "testtest" },
+#   { username: "mei.chen", first_name: "mei", last_name: "chen", email: "mei@gmail.com", password: "testtest" },
+#   { username: "arjun.iyer", first_name: "arjun", last_name: "iyer", email: "arjun@gmail.com", password: "testtest" },
+#   { username: "yumi.kim", first_name: "yumi", last_name: "kim", email: "yumi@gmail.com", password: "testtest" },
+#   { username: "raj.patel", first_name: "raj", last_name: "patel", email: "raj@gmail.com", password: "testtest" },
+#   { username: "luisa.alvarez", first_name: "luisa", last_name: "alvarez", email: "luisa@gmail.com", password: "testtest" },
+#   { username: "chinedu.nwosu", first_name: "chinedu", last_name: "nwosu", email: "chinedu@gmail.com", password: "testtest" },
+#   { username: "hana.matsumoto", first_name: "hana", last_name: "matsumoto", email: "hana@gmail.com", password: "testtest" },
+#   { username: "rodrigo.fernandez", first_name: "rodrigo", last_name: "fernandez", email: "rodrigo@gmail.com", password: "testtest" },
+#   { username: "david.garcia", first_name: "david", last_name: "garcia", email: "david@gmail.com", password: "testtest" },
+#   { username: "olivia.brown", first_name: "olivia", last_name: "brown", email: "olivia@gmail.com", password: "testtest" },
+#   { username: "michael.wilson", first_name: "michael", last_name: "wilson", email: "michael@gmail.com", password: "testtest" },
+#   { username: "isabella.moore", first_name: "isabella", last_name: "moore", email: "isabella@gmail.com", password: "testtest" },
+#   { username: "william.taylor", first_name: "william", last_name: "taylor", email: "william@gmail.com", password: "testtest" }
+# ]
+
+# users.each do |user|
+#   User.create(user)
+#   puts "#{user[:username]} created"
+# end
+
+# # ----------- sports seeding -------
+# puts "------- Creating Sports -------"
+# sports = [
+#   { name: "Soccer", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/soccer.jpg" },
+#   { name: "Basketball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/basketball.jpg" },
+#   { name: "Baseball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/baseball.jpg" },
+#   { name: "Tennis", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/tennis.jpg" },
+#   { name: "Volleyball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/volleyball.jpg" },
+#   { name: "Cricket", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/cricket.jpg" },
+#   { name: "Rugby", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/rugby.jpg" },
+#   { name: "Hockey", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/hockey.jpg" },
+#   { name: "Golf", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/golf.jpg" },
+#   { name: "Swimming", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/swimming.jpg" },
+#   { name: "Cycling", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/cycling.jpg" },
+#   { name: "Boxing", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/boxing.jpg" },
+#   { name: "Wrestling", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/wrestling.jpg" },
+#   { name: "Tennis", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/tennis.jpg" },
+#   { name: "Badminton", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/badminton.jpg" },
+#   { name: "Table Tennis", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/table_tennis.jpg" },
+#   { name: "Basketball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/basketball.jpg" },
+#   { name: "American Football", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/american_football.jpg" },
+#   { name: "Softball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/softball.jpg" },
+#   { name: "Handball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/handball.jpg" }
+# ]
+
+# sports.each do |sport|
+#   Sport.create!(sport)
+#   puts "#{sport[:name]} created"
+# end
+
+# puts "------- Creating Activities -------"
+# # ----------- activities seeding -------
+# # ----API to get the sport field of amsterdam -----
+# uri = URI.parse("https://maps.amsterdam.nl/open_geodata/geojson_lnglat.php?KAARTLAAG=SPORT_OPENBAAR&THEMA=sport")
+# response = Net::HTTP.get_response(uri)
+# data = JSON.parse(response.body)
+# all_activities = data['features']
+# # selectie = ["BASKETBAL", "TENNIS", "VOETBAL", "OVERIG", "SKATE", "FITNESS", "JEUDEBOULES", "TAFELTENNIS"]
+# 25.times do
+#   index = rand(0..950)
+#   the_activity = all_activities[index]
+#   while (the_activity == nil) || (the_activity["properties"]["Omschrijving"] == "") || (the_activity["properties"]["SÉLECTIE"] == "")
+#     index = rand(0..950)
+#     the_activity = all_activities[index]
+#   end
+
+#   lat = the_activity['geometry']['coordinates'][1]
+#   lng = the_activity['geometry']['coordinates'][0]
+#   # ----- generate random sentense for name -----
+#   game_type = ['match', 'tournament', 'league', 'season', 'training', 'championship', 'competition', 'game']
+#   level = ["beginner", "intermediate", "advanced", "pro", "recreational"]
+#   type = ["3x3", "4x4", "5x5", "1vs1", "11x11"]
+#   the_sport = mach_sport(the_activity["properties"]["SELECTIE"])
+#   sentence = "#{type.sample} #{the_sport} #{game_type.sample} for #{level.sample} "
+#   # ---- another API to get the location address -----
+#   uri = URI.parse("https://nominatim.openstreetmap.org/reverse?format=json&lat=#{lat}&lon=#{lng}")
+#   response = Net::HTTP.get_response(uri)
+#   the_location = JSON.parse(response.body)
+#   address = the_location["display_name"]
+#   desc = "#{type.sample} #{the_sport} #{game_type.sample} for #{level.sample}. #{the_activity['properties']['Omschrijving']}. #{Faker::Lorem.paragraph}"
+
+#   activity = Activity.create!(name: sentence,
+#                               user: User.all.sample,
+#                               sport: Sport.find_by(name: the_sport),
+#                               location: address,
+#                               description: desc,
+#                               date_time: Faker::Date.between(from: Date.today, to: 1.week.from_now))
+#   activity.save
+#   puts "#{activity.name} create"
+# end
+
+# puts "Finished!"
