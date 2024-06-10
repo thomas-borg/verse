@@ -79,7 +79,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_10_101756) do
     t.index ["activity_id"], name: "index_members_on_activity_id"
     t.index ["user_id"], name: "index_members_on_user_id"
   end
-
+  
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id", null: false
