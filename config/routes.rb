@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   # root "posts#index"
   get 'profile', to: 'pages#profile'
 
+  get 'users/:id', to: 'users#show', as: 'user'
+  resources :users, only: [:show]
 
   resources :chatrooms, only: :index
   resources :chatrooms, only: :show do
