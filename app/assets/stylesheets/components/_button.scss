@@ -53,3 +53,35 @@
   margin-left: 64px;
   border: none;
 }
+
+.btn-log-out {
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px;
+  text-decoration: none;
+  border-style: solid;
+  border-color: #FCA311;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 0%;
+
+  a {
+    color: #FCA311;
+    font-weight: bold;
+  }
+}
+
+.btn-edit {
+  background-color:#FCA311;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 5px;
+  text-decoration: none;
+  border-style: solid;
+  border-color: #FCA311;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 0%;
+  margin-left: 32px;
+}
