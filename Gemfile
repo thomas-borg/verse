@@ -92,3 +92,5 @@ gem "pg_search", "~> 2.3"
 gem "geocoder"
 
 gem "ruby-openai"
+
+gem 'time_ago_in_words'

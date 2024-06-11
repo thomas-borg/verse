@@ -3,6 +3,8 @@ class MessagesController < ApplicationController
   require 'action_view'
   require 'action_view/helpers'
   include ActionView::Helpers::DateHelper
+  require 'active_support/core_ext/numeric/time'
+
 
   def index
     @activity = Activity.find(params[:activity_id])

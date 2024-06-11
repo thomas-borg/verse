@@ -8,6 +8,7 @@
     <div class="row px-2 pb-2">
       <div class="messages" id="messages-container" style="height: 390px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;" data-chatroom-subscription-target="messages">
         <% @messages.each do |message| %>
+
           <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
             <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
               <%= render "messages/message", message: message %>
