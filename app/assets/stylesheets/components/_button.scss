@@ -39,9 +39,18 @@
   border-radius: 0px 40px 40px 0px;
   background-color: #FCA311;
   color: white;
+  border: none;
   text-decoration: none;
   padding-left: 15px;
   padding-right: 15px;
+
+  --bs-btn-hover-color: white;
+  --bs-btn-hover-bg: #FCA311;
+  --bs-btn-hover-border-color: none;
+
+  --bs-btn-active-color: white;
+  --bs-btn-active-bg: #e79108;
+  --bs-btn-active-border-color: none;
 }
 
 #btn-log {
@@ -62,7 +71,7 @@
   background-color: #FCA311;
   color: white;
   text-decoration: none;
-  padding: 5px 16px 5px;
+  padding: 5px 10px 5px;
   font-weight: bold;
   margin-left: 64px;
   border: none;
