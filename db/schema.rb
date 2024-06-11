@@ -113,4 +113,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_10_101756) do
   add_foreign_key "activities", "users"
   add_foreign_key "members", "activities"
   add_foreign_key "members", "users"
+  add_foreign_key "messages", "activities"
+  add_foreign_key "messages", "users"
 end
