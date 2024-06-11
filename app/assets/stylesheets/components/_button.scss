@@ -5,8 +5,15 @@
   text-decoration: none;
   padding-left: 15px;
   padding-right: 15px;
-  border: none;
+  border: #FCA311;
   font-weight: bold;
+
+  &:hover, &:active, &:focus, &:focus-visible {
+    background-color: #e59411!important;
+    color: white!important;
+    border: #e59411!important;
+
+  }
 }
 
 .btn-bck {
@@ -15,19 +22,35 @@
   border-radius: 20px;
   padding: 5px;
   text-decoration: none;
-  border-style: solid;
+  border: 3px solid;
   border-color: #FCA311;
   padding-left: 15px;
   padding-right: 15px;
+  font-weight: bold;
+
+  &:hover, &:active, &:focus, &:focus-visible {
+    color: #d0860f!important;
+    border-color: #d0860f!important;
+
+  }
 }
 
 .btn-primary {
   border-radius: 0px 40px 40px 0px;
   background-color: #FCA311;
   color: white;
+  border: none;
   text-decoration: none;
   padding-left: 15px;
   padding-right: 15px;
+
+  --bs-btn-hover-color: white;
+  --bs-btn-hover-bg: #FCA311;
+  --bs-btn-hover-border-color: none;
+
+  --bs-btn-active-color: white;
+  --bs-btn-active-bg: #e79108;
+  --bs-btn-active-border-color: none;
 }
 
 #btn-log {
@@ -48,8 +71,41 @@
   background-color: #FCA311;
   color: white;
   text-decoration: none;
-  padding: 5px 16px 5px;
+  padding: 5px 10px 5px;
   font-weight: bold;
   margin-left: 64px;
   border: none;
+}
+
+.btn-log-out {
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px;
+  text-decoration: none;
+  border-style: solid;
+  border-color: #FCA311;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 0%;
+
+  a {
+    color: #FCA311;
+    font-weight: bold;
+  }
+}
+
+.btn-edit {
+  background-color:#FCA311;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 5px;
+  text-decoration: none;
+  border-style: solid;
+  border-color: #FCA311;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-bottom: 0%;
+  margin-left: 50px;
+  margin-right: 16px;
 }

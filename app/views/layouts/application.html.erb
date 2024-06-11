@@ -10,13 +10,16 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
+  <body class="mb-5"><%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
 
 <%#= action_cable_meta_tag %>
 
     <%= yield %>
 
-    <%= render "shared/footer" %>
+    <footer class="navbar fixed-bottom">
+        <%= render "shared/footer" %>
+    </footer>
+
   </body>
 </html>

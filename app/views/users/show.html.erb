@@ -1,5 +1,4 @@
-
-    <div class="image-n-title pb-3">
+ <div class="image-n-title pb-3">
       <h1 class="proheader">Profile</h1>
       <hr class="featurette-divider">
         <div class="profile-images-div">
@@ -9,7 +8,6 @@
         </div>
     </div>
     <div class="personal-detailsss">
-    <h2 class="mineinfo">My Profile</h2>
     <hr class="featurette-divider">
       <div class="container pb-1">
 
@@ -23,7 +21,7 @@
               </div>
               <hr class="featurette-divider">
               <div class="details-title">
-              <h3>Full Name</h3>
+              <h3>Name</h3>
               </div>
               <div class="full-name">
                 <h5 class="first-name"><%= @user.first_name.capitalize %>  <%= @user.last_name.capitalize %></h5>
@@ -37,20 +35,13 @@
               </div>
               <hr class="featurette-divider">
               <div class="details-title">
-                <h3>About Me</h3>
+                <h3>About</h3>
               </div>
               <div class="personal-details">Hi there! I'm a fitness enthusiast and amateur marathon runner. I enjoy weightlifting, cycling, and hiking in my free time. Follow me for workout tips, race updates, and motivation to stay active and healthy!</div>
               <hr class="featurette-divider">
 
-              <div class="d-flex">
-
-                <div class="container-sm mb-3">
-                  <button class="btn-edit pt-2 pb-2" href="/users/edit" id="edit-btn">Edit</button>
-                </div>
-                <div class="container mb-3">
-                  <button class="btn-log-out pt-2 pb-2"><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %></button>
-                </div>
-
+              <div class="edit-class">
+              <p><a class="btn-go pt-2 pb-2" href="/chatrooms/id" role="button" id="chat-btn">Chat with <%= @user.first_name.capitalize %></a></p>
               </div>
 
           </div>

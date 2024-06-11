@@ -3,31 +3,39 @@
   <div class="activities-row">
 
     <div class="main-info">
-      <div class="sports-pictures">
-        <p class="pictures"><%= image_tag "https://source.unsplash.com/random/?sports", alt: "sports-icn", style: "width: 100%; height: 250px;" %></p>
-
+      <div style="width: 100%; height: 190px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-      <p class="names d-flex justify-content-center mt-3"><%= @activity.name %></p>
-
     </div>
+    <div class="container">
+      <div class="d-flex flex-column">
+        <div class="d-flex">
+          <h3 class="names justify-content-center my-4 mx-4"><strong><%= @activity.name %></strong></h3>
+        </div>
+        <div class="d-flex mx-4">
+          <p> <%= cl_image_tag @activity.user.avatar.key, alt: "Profile icon", class:"avatar-large", height:"56", width:"56" %> </p>
+          <div class="d-flex flex-column">
+            <span class="mx-3">Posted by <%= @activity.user.first_name.capitalize %> on</span>
+            <i class="mx-3"> <%= @activity.created_at.strftime("%a %eth at %H:%M") %></i>
+          </div>
+        </div>
 
-    <p class="infos d-flex justify-content-center"><%= @activity.description %></p>
-    <div class="buttons-div">
+        <p class="infos mt-2 mx-4"><%= @activity.description %></p>
+      <div>
+    </div>
+    <div class="d-flex justify-content-around mt-2 mb-5">
+      <a href="/activities" class="btn btn-bck">Go Back</a>
       <% if @activity.user != current_user %>
         <% if @is_member.empty? == true %>
           <div class="button-request d-flex justify-content-center">
             <%= simple_form_for [@activity, @member] do |f| %>
-              <%= f.submit "Join", class: "btn-go" %>
+              <%= f.submit "Request to join", class: "btn btn-go" %>
             <% end %>
           </div>
         <% end %>
       <% end %>
-      <div class="button-back d-flex justify-content-center">
-        <a href="/activities" class="btn-bck">Go Back</a>
-      </div>
-    </div>
-    <div class="maps">
-      <p class="loc"><%= image_tag "https://source.unsplash.com/random/?sports}", alt: "Maps-icn", style: "width: 100%; height: 175px;" %></p>
     </div>
   </div>
 </div>

@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   get 'profile', to: 'pages#profile'
   get 'chatroom', to: 'pages#chatroom'
 
+  get 'users/:id', to: 'users#show', as: 'user'
+  resources :users, only: [:show]
 
 end

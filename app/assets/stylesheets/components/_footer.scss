@@ -5,11 +5,8 @@
   width: 100%;
   height: 65px;
   color: white;
-
-}
-
-.footer-verse .footer-collapse {
-  flex-grow: 0;
+  display: flex;
+  align-items: center;
 }
 
 .foot-link {
@@ -20,37 +17,61 @@
 .footer-nav {
   display: flex;
   justify-items: center;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
-.foot_item {
-  width: 20%;
-}
-
-.logos-dashboard {
-  width: 37px;
-}
-
-.logos-add-activity{
-  width: 50px;
-}
-
-.logos-messages {
+.foot-link img {
   width: 40px;
-  margin-right: 10px;
+  height: 40px;
 }
 
-.logos-home {
-  width: 37px;
-}
+// .logos-dashboard {
+//   width: 40px;
+// }
 
-.logos-profile {
-  width: 37px;
-}
+// .logos-add-activity{
+//   width: 60px;
+//   padding-left: 5px;
+// }
+
+// .logos-messages {
+//   width: 40px;
+// }
+
+// .logos-home {
+//   width: 40px;
+// }
+
+// .logos-profile {
+//   width: 40px;
+// }
 
 .logos-login {
-
   width: 50px;
+}
 
+.fixed-bottom {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.foot-link-add {
+  position: relative;
+  width: 40px;
+}
+
+.new-activity {
+  position: absolute;
+  top: -58px;
+  background-color: orange;
+  padding: 10px;
+  border-radius: 50%;
+  border: 5px solid;
+  left: -14px;
 }

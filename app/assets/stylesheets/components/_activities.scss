@@ -1,18 +1,3 @@
-.buttons-div {
-  margin: 10px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.button-request {
-  width: 50%;
-}
-
-.button-back {
-  width: 50%;
-}
-
 .infos {
   margin-left: 10%;
   width: 80%;
@@ -26,4 +11,31 @@
 .maps {
   width: 100%;
   height: 250px;
+}
+
+
+// styling new
+.form-container {
+  background: #f9f9f9;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  //max-width: 600px;
+
+}
+.form-header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #343a40;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.btn-custom {
+  background-color: #FCA326;
+  color: white;
+}
+
+.btn-custom:hover {
+  background-color: #fc9505;
 }
