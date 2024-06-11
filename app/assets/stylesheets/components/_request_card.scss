@@ -17,14 +17,6 @@
   transition: background-color 0.3s;
 }
 
-.circle {
-  width: 50px; /* Largeur du cercle */
-  height: 50px; /* Hauteur du cercle */
-  border: 5px solid #FFA500; /* Taille et couleur de la bordure */
-  border-radius: 50%; /* Rend l'élément circulaire */
-  padding-right: 3px;
-}
-
 .button-secondary {
   display: inline-block;
   background-color: white; /* couleur orange */
@@ -40,5 +32,18 @@
 
 .icon-response {
   width: 50px;
+  height: auto;
+}
+
+.pic-request-container {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #FFA500;
+}
+
+.pic-request {
+  width: 100%;
+  border-radius: 50%;
   height: auto;
 }
