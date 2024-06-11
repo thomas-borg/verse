@@ -9,19 +9,16 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'pages#dashboard'
   resources :activities, only: [:new, :create, :index, :show] do
+    resources :messages, only: [:create, :index]
     resources :members, only: [:create, :update, :destroy]
   end
   # resources :members
   # Defines the root path route ("/")
   # root "posts#index"
   get 'profile', to: 'pages#profile'
+  get 'chatroom', to: 'pages#chatroom'
 
   get 'users/:id', to: 'users#show', as: 'user'
   resources :users, only: [:show]
-
-  resources :chatrooms, only: :index
-  resources :chatrooms, only: :show do
-    resources :messages, only: :create
-  end
 
 end
