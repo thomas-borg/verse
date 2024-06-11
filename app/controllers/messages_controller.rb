@@ -1,10 +1,20 @@
 class MessagesController < ApplicationController
 
+  require 'action_view'
+  require 'action_view/helpers'
+  include ActionView::Helpers::DateHelper
+
   def index
     @activity = Activity.find(params[:activity_id])
     @messages = Message.where(activity: @activity)
     @message = Message.new
   end
+
+  def show
+    @message = Message.find(params[:id])
+    @sent_time = @message.created_at
+  end
+
 
   def create
     @activity = Activity.find(params[:activity_id])
@@ -14,9 +24,9 @@ class MessagesController < ApplicationController
     if @message.save
       ChatroomChannel.broadcast_to(
         @activity,
-        render_to_string(partial: "message", locals: {message: @message})
+        message: render_to_string(partial: "message", locals: { message: @message }),
+        sender_id: @message.user.id
       )
-      head :ok
     else
       render "activities/show", status: :unprocessable_entity
     end
@@ -28,5 +38,7 @@ class MessagesController < ApplicationController
   def message_params
     params.require(:message).permit(:content, :activity_id)
   end
+
+
 
 end
