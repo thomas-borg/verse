@@ -5,8 +5,15 @@
   text-decoration: none;
   padding-left: 15px;
   padding-right: 15px;
-  border: none;
+  border: #FCA311;
   font-weight: bold;
+
+  &:hover, &:active, &:focus, &:focus-visible {
+    background-color: #e59411!important;
+    color: white!important;
+    border: #e59411!important;
+
+  }
 }
 
 .btn-bck {
@@ -15,10 +22,17 @@
   border-radius: 20px;
   padding: 5px;
   text-decoration: none;
-  border-style: solid;
+  border: 3px solid;
   border-color: #FCA311;
   padding-left: 15px;
   padding-right: 15px;
+  font-weight: bold;
+
+  &:hover, &:active, &:focus, &:focus-visible {
+    color: #d0860f!important;
+    border-color: #d0860f!important;
+
+  }
 }
 
 .btn-primary {
