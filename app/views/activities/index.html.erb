@@ -6,12 +6,12 @@
 
 <div class="container-xl d-flex">
 
-  <div class="row justify-content mx-auto w-100">
-    <div class="col my-3">
+  <div class="row w-100">
+    <div class="d-flex search-map justify-content-center">
       <%= form_with url: activities_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
               params[:query],
-              class: "form-control",
+              class: "form-control search-textbox",
               placeholder: "Type a keyword"
           %>
         <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
