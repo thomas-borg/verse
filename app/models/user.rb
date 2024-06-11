@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :activities
   has_many :members
+  has_many :messages
 
   has_one_attached :avatar
 

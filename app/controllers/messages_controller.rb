@@ -1,34 +1,32 @@
 class MessagesController < ApplicationController
 
   def index
-    @messages = Message.all
-  end
-
-  def new
-    @message = Message.new
-  end
-
-  def show
-    @chatroom = Chatroom.find(params[:id])
+    @activity = Activity.find(params[:activity_id])
+    @messages = Message.where(activity: @activity)
     @message = Message.new
   end
 
   def create
-    @chatroom = Chatroom.find(params[:chatroom_id])
+    @activity = Activity.find(params[:activity_id])
     @message = Message.new(message_params)
-    @message.chatroom = @chatroom
+    @message.activity = @activity
     @message.user = current_user
     if @message.save
-      redirect_to chatroom_path(@chatroom)
+      ChatroomChannel.broadcast_to(
+        @activity,
+        render_to_string(partial: "message", locals: {message: @message})
+      )
+      head :ok
     else
-      render "chatrooms/show", status: :unprocessable_entity
+      render "activities/show", status: :unprocessable_entity
     end
+
   end
 
   private
 
   def message_params
-    params.require(:message).permit(:content)
+    params.require(:message).permit(:content, :activity_id)
   end
 
 end

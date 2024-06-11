@@ -11,26 +11,26 @@ export default class extends Controller {
 
     this.subscription = createConsumer().subscriptions.create(
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
-      { received: data => console.log(data) }
+      {received: data => this.#insertMessageAndScrollDown(data)}
     )
 
     console.log(`Subscribe to the chatroom with the id ${this.chatroomIdValue}.`)
 
   }
-}
 
-received: data => this.messagesTarget.insertAdjacentHTML("beforeend", data)
 
-#insertMessageAndScrollDown(data) {
-  this.messagesTarget.insertAdjacentHTML("beforeend", data)
-  this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
-}
+  #insertMessageAndScrollDown(data) {
+    this.messagesTarget.insertAdjacentHTML("beforeend", data)
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+  }
 
-resetForm(event) {
-  event.target.reset()
-}
+  resetForm(event) {
+    event.target.reset()
+  }
 
-disconnect() {
-  console.log("Unsubscribed from the chatroom")
-  this.subscription.unsubscribe()
+  disconnect() {
+    console.log("Unsubscribed from the chatroom")
+    this.subscription.unsubscribe()
+  }
+
 }

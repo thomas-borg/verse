@@ -24,7 +24,7 @@ class Activity < ApplicationRecord
   belongs_to :sport
   has_many :members
   has_many :users, through: :members
-  has_one :chatroom
+  has_many :messages
 
   validates :location, presence: true
   validates :name, presence: true

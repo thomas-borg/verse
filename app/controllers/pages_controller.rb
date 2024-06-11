@@ -34,6 +34,7 @@ class PagesController < ApplicationController
   def chatroom
     if user_signed_in?
       @user = current_user
+      @activities = Activity.where(user: @user)
       @chatrooms = Member.where(user: @user, accepted: true)
 
     else
