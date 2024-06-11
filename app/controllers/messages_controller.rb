@@ -1,34 +1,46 @@
 class MessagesController < ApplicationController
 
-  def index
-    @messages = Message.all
-  end
+  require 'action_view'
+  require 'action_view/helpers'
+  include ActionView::Helpers::DateHelper
+  require 'active_support/core_ext/numeric/time'
 
-  def new
+
+  def index
+    @activity = Activity.find(params[:activity_id])
+    @messages = Message.where(activity: @activity)
     @message = Message.new
   end
 
   def show
-    @chatroom = Chatroom.find(params[:id])
-    @message = Message.new
+    @message = Message.find(params[:id])
+    @sent_time = @message.created_at
   end
 
+
   def create
-    @chatroom = Chatroom.find(params[:chatroom_id])
+    @activity = Activity.find(params[:activity_id])
     @message = Message.new(message_params)
-    @message.chatroom = @chatroom
+    @message.activity = @activity
     @message.user = current_user
     if @message.save
-      redirect_to chatroom_path(@chatroom)
+      ChatroomChannel.broadcast_to(
+        @activity,
+        message: render_to_string(partial: "message", locals: { message: @message }),
+        sender_id: @message.user.id
+      )
     else
-      render "chatrooms/show", status: :unprocessable_entity
+      render "activities/show", status: :unprocessable_entity
     end
+
   end
 
   private
 
   def message_params
-    params.require(:message).permit(:content)
+    params.require(:message).permit(:content, :activity_id)
   end
+
+
 
 end

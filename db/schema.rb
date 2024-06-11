@@ -59,15 +59,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_10_101756) do
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
-  create_table "chatrooms", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "activity_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["activity_id"], name: "index_chatrooms_on_activity_id"
-    t.index ["user_id"], name: "index_chatrooms_on_user_id"
-  end
-
   create_table "members", force: :cascade do |t|
     t.bigint "activity_id", null: false
     t.bigint "user_id", null: false
@@ -78,6 +69,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_10_101756) do
     t.boolean "accepted", default: false
     t.index ["activity_id"], name: "index_members_on_activity_id"
     t.index ["user_id"], name: "index_members_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "activity_id"
+    t.index ["activity_id"], name: "index_messages_on_activity_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "sports", force: :cascade do |t|
@@ -110,8 +111,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_10_101756) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "activities", "sports"
   add_foreign_key "activities", "users"
-  add_foreign_key "chatrooms", "activities"
-  add_foreign_key "chatrooms", "users"
   add_foreign_key "members", "activities"
   add_foreign_key "members", "users"
 end

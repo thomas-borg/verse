@@ -10,8 +10,10 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
+  <body class="mb-5"><%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
+
+<%#= action_cable_meta_tag %>
 
     <%= yield %>
 
