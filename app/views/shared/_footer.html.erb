@@ -1,37 +1,15 @@
 <div class="footer footer-expand-sm footer-light footer-verse">
-  <div class="container">
-
-
-    <div class="footer-collapse" id="footerSupportedContent">
-        <div class="footer-nav pt-2">
-          <% if user_signed_in? %>
-
-            <a class="foot-item">
-              <a class="foot-link" aria-current="page"  href="/"><%= image_tag("home-64.png",  :alt => "logos", :class => "logos-home") %></a>
-            </a>
-            <a class="foot-item">
-              <a class="foot-link" aria-current="page"  href="/dashboard"><%= image_tag("dashboard-48.png",  :alt => "logos", :class => "logos-dashboard") %></a>
-            </a>
-            <a class="foot-item" id="add-button">
-              <a class="foot-link" aria-current="page"  href="/activities/new"> <%= image_tag("add-64.png",  :alt => "logos", :class => "logos-add-activity") %></a>
-            </a>
-            <a class="foot-item">
-              <a class="foot-link" aria-current="page" href="/chatrooms"><%= image_tag("messages-60.png",  :alt => "logos", :class => "logos-messages") %></a>
-            </a>
-            <a class="foot-item">
-              <a class="foot-link" aria-current="page" href="/profile">  <%= image_tag("user-52.png",  :alt => "logos", :class => "logos-profile") %></a>
-            </a>
-
-          <% else %>
-            <p></p>
-          <% end %>
-        </div>
-
+  <div class="footer-nav">
+    <% if user_signed_in? %>
+      <a class="foot-link" aria-current="page"  href="/"><%= image_tag("icons/home.png",  :alt => "home icon", :class => "logos-home") %></a>
+      <a class="foot-link" aria-current="page"  href="/dashboard"><%= image_tag("icons/dashboard.png",  :alt => "dashboard icon", :class => "logos-dashboard") %></a>
+      <div class="foot-link-add">
+        <a class="foot-link new-activity" aria-current="page"  href="/activities/new"> <%= image_tag("icons/add.png",  :alt => "plus icon", :class => "logos-add-activity") %></a>
       </div>
-
+      <a class="foot-link" aria-current="page" href="/chatroom"><%= image_tag("icons/chat.png",  :alt => "chat icon", :class => "logos-messages") %></a>
+      <a class="foot-link" aria-current="page" href="/profile">  <%= image_tag("icons/account_circle.png",  :alt => "profile icon", :class => "logos-profile") %></a>
+    <% end %>
   </div>
-
-
 </div>
 
 
