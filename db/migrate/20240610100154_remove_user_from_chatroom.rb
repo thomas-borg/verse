@@ -5,3 +5,4 @@ class RemoveUserFromChatroom < ActiveRecord::Migration[7.1]
     add_reference :messages, :activity, index: true, foreign_key: true
   end
 end
+#
