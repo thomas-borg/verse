@@ -47,7 +47,9 @@
               <div class="d-flex">
 
                 <div class="container-sm mb-3">
-                  <button class="btn-edit pt-2 pb-2" href="/users/edit" id="edit-btn">Edit</button>
+                <a href="/users/edit">
+                  <button class="btn-edit pt-2 pb-2" id="edit-btn">Edit</button>
+                </a>
                 </div>
                 <div class="container mb-3">
                   <button class="btn-log-out pt-2 pb-2"><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %></button>
