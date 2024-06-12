@@ -94,3 +94,5 @@ gem "geocoder"
 gem "ruby-openai"
 
 gem 'time_ago_in_words'
+
+gem "redis", ">= 4.0.1"
