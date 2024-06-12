@@ -6,8 +6,9 @@
       data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
     >
       <h1 class="topic my-2 px-3"><strong><%= @activity.name %></strong></h1>
+      <h3 class="my-2 d-flex justify-content-center"><%= @activity.short_address %></h3>
       <div class="row px-2 pb-2">
-        <div class="messages" id="messages-container" style="height: 390px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;" data-chatroom-subscription-target="messages">
+        <div class="messages" id="messages-container" style="height: 390px; overflow-y: auto; border-top: 1px solid #ccc; padding: 10px;" data-chatroom-subscription-target="messages">
           <% @messages.each do |message| %>
 
             <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
@@ -20,7 +21,7 @@
       </div>
     </div>
 
-    <div class="form-container" >
+    <div class="form-container" id="message-form">
       <%= simple_form_for [@activity, @message], remote: true,
           html: { data: { controller: "chatroom-subscription", action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
         %>
@@ -29,7 +30,9 @@
             placeholder: "#{@activity.name}",
             wrapper_html: {class: "flex-grow-1"}
           %>
-          <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+          <button type="submit" id="completed-task" class="btn-primary ml-0" style="height: 37px; border-radius: 0px 10px 10px 0px;">
+            <i class="fa-solid fa-paper-plane fa-xl"></i>
+          </button>
         <% end %>
     </div>
   </div>
