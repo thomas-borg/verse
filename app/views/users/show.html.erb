@@ -2,9 +2,11 @@
       <h1 class="proheader">Profile</h1>
       <hr class="featurette-divider">
         <div class="profile-images-div">
-
+          <% if @user.avatar.key == nil %>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Windows_10_Default_Profile_Picture.svg" alt="Profile icon" class="profile-pic" height="250">
+          <% else %>
             <%= cl_image_tag @user.avatar.key, alt: "Profile icon", class:"profile-pic", height:"250" %>
-
+          <% end %>
         </div>
     </div>
     <div class="personal-detailsss">
@@ -24,14 +26,7 @@
               <h3>Name</h3>
               </div>
               <div class="full-name">
-                <h5 class="first-name"><%= @user.first_name.capitalize %>  <%= @user.last_name.capitalize %></h5>
-              </div>
-              <hr class="featurette-divider">
-              <div class="details-title">
-              <h3>E-mail</h3>
-              </div>
-              <div class="user-mail">
-                <h5><%= @user.email %></h5>
+                <h5 class="first-name"><%= @user.first_name.capitalize %></h5>
               </div>
               <hr class="featurette-divider">
               <div class="details-title">
@@ -39,14 +34,7 @@
               </div>
               <div class="personal-details">Hi there! I'm a fitness enthusiast and amateur marathon runner. I enjoy weightlifting, cycling, and hiking in my free time. Follow me for workout tips, race updates, and motivation to stay active and healthy!</div>
               <hr class="featurette-divider">
-
-              <div class="edit-class">
-              <p><a class="btn-go pt-2 pb-2" href="/chatrooms/id" role="button" id="chat-btn">Chat with <%= @user.first_name.capitalize %></a></p>
-              </div>
-
           </div>
-
-
         </div>
       </div>
     </div>

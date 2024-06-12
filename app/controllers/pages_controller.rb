@@ -26,6 +26,7 @@ class PagesController < ApplicationController
     if user_signed_in?
       @user = current_user
       @activities = Activity.where(user: @user)
+      # raise
     else
       redirect_to new_user_session_path, alert: "Vous devez être connecté pour accéder à cette page."
     end

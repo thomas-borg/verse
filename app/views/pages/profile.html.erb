@@ -3,9 +3,11 @@
       <h1 class="proheader">Profile</h1>
       <hr class="featurette-divider">
         <div class="profile-images-div">
-
+          <% if @user.avatar.key == nil %>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Windows_10_Default_Profile_Picture.svg" alt="Profile icon" class="profile-pic" height="250">
+          <% else %>
             <%= cl_image_tag @user.avatar.key, alt: "Profile icon", class:"profile-pic", height:"250" %>
-
+          <% end %>
         </div>
     </div>
     <div class="personal-detailsss">
