@@ -37,6 +37,11 @@ class PagesController < ApplicationController
       @user = current_user
       @activities = Activity.where(user: @user)
       @chatrooms = Member.where(user: @user, accepted: true)
+      @chat = []
+      @chatrooms.each do |act|
+        @chat << act.activity
+      end
+
 
     else
       redirect_to new_user_session_path, alert: "Vous devez être connecté pour accéder à cette page."

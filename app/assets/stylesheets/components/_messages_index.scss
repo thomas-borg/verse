@@ -1,6 +1,8 @@
-.form-container {
+#message-form {
   margin-left: 7px;
   margin-right: 7px;
+  padding: 2px;
+  border-radius: 2px;
 }
 
 #messages-container {
@@ -16,9 +18,9 @@
 }
 
 .chatroom {
-  background: white;
+
   margin-top: 9px;
-  height: calc(100vh - 180px);
+  height: calc(98vh - 180px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
