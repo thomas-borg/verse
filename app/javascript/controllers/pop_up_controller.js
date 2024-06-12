@@ -16,15 +16,4 @@ export default class extends Controller {
     })
     this.element.remove()
   }
-
-  approved() {
-    Swal.fire({
-      icon: "success",
-      title: "Request approved!",
-      text: "You can now chat with ",
-      showCancelButton: true,
-      cancelButtonText: `<a href="/chatroom" style="color: white;">Open Inbox</a>`,
-    })
-    this.element.remove()
-  }
 }
