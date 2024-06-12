@@ -3,9 +3,11 @@
       <h1 class="proheader">Profile</h1>
       <hr class="featurette-divider">
         <div class="profile-images-div">
-
+          <% if @user.avatar.key == nil %>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Windows_10_Default_Profile_Picture.svg" alt="Profile icon" class="profile-pic" height="250">
+          <% else %>
             <%= cl_image_tag @user.avatar.key, alt: "Profile icon", class:"profile-pic", height:"250" %>
-
+          <% end %>
         </div>
     </div>
     <div class="personal-detailsss">
@@ -45,7 +47,9 @@
               <div class="d-flex">
 
                 <div class="container-sm mb-3">
-                  <button class="btn-edit pt-2 pb-2" href="/users/edit" id="edit-btn">Edit</button>
+                <a href="/users/edit">
+                  <button class="btn-edit pt-2 pb-2" id="edit-btn">Edit</button>
+                </a>
                 </div>
                 <div class="container mb-3">
                   <button class="btn-log-out pt-2 pb-2"><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %></button>

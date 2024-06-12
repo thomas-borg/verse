@@ -5,13 +5,8 @@ class MembersController < ApplicationController
     @member = Member.new
     @member.activity = @activity
     @member.accepted = false
-
     @member.user = current_user
-
-    if @member.save!
-      flash[:notice] = "Request sent!"
-      redirect_to dashboard_path
-    end
+    @member.save!
   end
 
   def update
