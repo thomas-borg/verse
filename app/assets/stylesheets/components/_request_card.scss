@@ -46,3 +46,10 @@
   border-radius: 50%;
   height: auto;
 }
+
+.nav-link {
+
+  .active {
+    border-bottom: 3px solid #FCA326; /* Add your preferred color */
+  }
+}

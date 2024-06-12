@@ -2,17 +2,18 @@
 <div class="container d-flex flex-column pt-2">
   <ul class="d-flex justify-content-center nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="request-tab" data-bs-toggle="tab" data-bs-target="#request" type="button" role="tab" aria-controls="request" aria-selected="true">Request</button>
+      <button class="nav-link active" id="upcoming-tab" data-bs-toggle="tab" data-bs-target="#upcoming" type="button" role="tab" aria-controls="upcoming" aria-selected="true">Upcoming</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="upcoming-tab" data-bs-toggle="tab" data-bs-target="#upcoming" type="button" role="tab" aria-controls="upcoming" aria-selected="false">Upcoming</button>
+      <button class="nav-link" id="activity-tab" data-bs-toggle="tab" data-bs-target="#activity" type="button" role="tab" aria-controls="activity" aria-selected="false">My Activities</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="activity-tab" data-bs-toggle="tab" data-bs-target="#activity" type="button" role="tab" aria-controls="activity" aria-selected="false">Activity</button>
+      <button class="nav-link" id="request-tab" data-bs-toggle="tab" data-bs-target="#request" type="button" role="tab" aria-controls="request" aria-selected="false">Requests</button>
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="request" role="tabpanel" aria-labelledby="request-tab">
+
+    <div class="tab-pane fade" id="request" role="tabpanel" aria-labelledby="request-tab">
       <% if @requests.empty? == false %>
         <div class="d-flex flex-column">
           <% @requests.each do |request| %>
@@ -48,7 +49,6 @@
                       activity_member_url(request.activity, request),
                       data: { "turbo-method": :patch },
                       class: "icon-response" %>
-
                       <%= link_to '<i class="fa fa-circle-xmark" style="font-size:40px;color:red"></i>'.html_safe,
                       activity_member_url(request.activity, request),
                       data: { "turbo-method": :delete },
@@ -63,7 +63,7 @@
       <%end %>
     </div>
 
-    <div class="tab-pane fade" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
+    <div class="tab-pane fade show active" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
       <% if @upcomings.empty? == false %>
         <div class="container d-flex flex-column">
           <%  @upcomings.each do |upcoming| %>
@@ -88,7 +88,9 @@
                     <a href="/activities/<%= upcoming.activity.id %>">
                       <button class="button"> <strong>Details</strong></button>
                     </a>
-                    <button class="button"> <strong>Chat</strong></button>
+                    <a href="/activities/<%= upcoming.activity.id %>/messages">
+                      <button class="button"> <strong>Chat</strong></button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -122,7 +124,9 @@
                   <a href="/activities/<%= activity.id %>">
                     <button class="button"> <strong>Details</strong></button>
                   </a>
-                  <button class="button"> <strong>Chat</strong></button>
+                  <a href="/activities/<%= activity.id %>/messages">
+                    <button class="button"> <strong>Chat</strong></button>
+                  </a>
                 </div>
               </div>
             </div>
