@@ -22,7 +22,7 @@ class Activity < ApplicationRecord
 
   belongs_to :user
   belongs_to :sport
-  has_many :members
+  has_many :members, dependent: :destroy
   has_many :users, through: :members
   has_many :messages
 

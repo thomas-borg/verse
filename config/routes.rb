@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   get 'dashboard', to: 'pages#dashboard'
-  resources :activities, only: [:new, :create, :index, :show] do
+  resources :activities, only: [:new, :create, :index, :show, :destroy] do
     resources :messages, only: [:create, :index]
     resources :members, only: [:create, :update, :destroy]
   end

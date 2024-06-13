@@ -8,7 +8,7 @@
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
 
-    <!– Facebook Open Graph data –>
+    <%# <!– Facebook Open Graph data –> %>
     <meta property="og:title" content="<%= meta_title %>" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="<%= request.original_url %>" />
@@ -16,7 +16,7 @@
     <meta property="og:description" content="<%= meta_description %>" />
     <meta property="og:site_name" content="<%= meta_title %>" />
 
-    <!– Twitter Card data –>
+    <%# <!– Twitter Card data –> %>
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
     <meta name="twitter:title" content="<%= meta_title %>">
@@ -34,17 +34,30 @@
 <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/confetti.css">
 
 
+    <%= render 'shared/ios_pwa_links' %>
+
+    <%# <link rel="manifest" href="/manifest.json"> %>
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+
   </head>
 
   <body class="mb-5" data-controller="scroll">
   <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
 
 <%#= action_cable_meta_tag %>
 
     <%= yield %>
 
-    <div style="height: 65px; width: 100%; background-color: #F4F4F4;"></div>
+    <% unless @hide_footer_div %>
+      <div style="height: 65px; width: 100%; background-color: #F4F4F4;"></div>
+    <% end %>
 
     <footer class="navbar fixed-bottom">
         <%= render "shared/footer" %>
