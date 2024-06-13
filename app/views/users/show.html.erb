@@ -1,5 +1,19 @@
  <div class="image-n-title pb-3">
-      <h1 class="proheader">Profile</h1>
+    <div class="top d-flex justify-content-center align-items-center">
+        <div>
+          <button onClick="previous()" class="btn-go" id="back-button">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+        </div>
+        <script>
+          function previous() {
+              window.history.go(-1);
+          }
+        </script>
+      <div>
+        <h1 class="proheader">Profile</h1>
+      </div>
+    </div>
       <hr class="featurette-divider">
         <div class="profile-images-div">
           <% if @user.avatar.key == nil %>
