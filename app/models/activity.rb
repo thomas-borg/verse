@@ -24,7 +24,7 @@ class Activity < ApplicationRecord
   belongs_to :sport
   has_many :members, dependent: :destroy
   has_many :users, through: :members
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   validates :location, presence: true
   validates :name, presence: true
