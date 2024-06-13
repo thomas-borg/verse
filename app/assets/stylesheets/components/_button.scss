@@ -6,7 +6,7 @@
   padding-left: 15px;
   padding-right: 15px;
   border: #FCA311;
-  font-weight: bold;
+  font-weight: 600;
 
   &:hover, &:active, &:focus, &:focus-visible {
     background-color: #e59411!important;
@@ -26,7 +26,7 @@
   border-color: #FCA311;
   padding-left: 15px;
   padding-right: 15px;
-  font-weight: bold;
+  font-weight: 600;
 
   &:hover, &:active, &:focus, &:focus-visible {
     color: #d0860f!important;
@@ -43,6 +43,7 @@
   text-decoration: none;
   padding-left: 15px;
   padding-right: 15px;
+  font-weight: 600;
 
   --bs-btn-hover-color: white;
   --bs-btn-hover-bg: #FCA311;
@@ -72,7 +73,7 @@
   color: white;
   text-decoration: none;
   padding: 5px 10px 5px;
-  font-weight: bold;
+  font-weight: 600;
   margin-left: 64px;
   border: none;
 }
@@ -90,14 +91,14 @@
 
   a {
     color: #FCA311;
-    font-weight: bold;
+    font-weight: 600;
   }
 }
 
 .btn-edit {
   background-color:#FCA311;
   color: white;
-  font-weight: bold;
+  font-weight: 600;
   border-radius: 20px;
   padding: 5px;
   text-decoration: none;
@@ -108,4 +109,18 @@
   padding-bottom: 0%;
   margin-left: 50px;
   margin-right: 16px;
+}
+
+.btn-custom {
+  background-color: #FCA311;
+  color: white;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 5px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.btn-custom:hover {
+  background-color: #FCA311;
 }
