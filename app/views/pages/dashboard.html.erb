@@ -51,13 +51,13 @@
                   </div>
                   <div class="button-apply pt-3">
                     <div class="d-flex flex-row">
-                      <%= link_to '<i class="far fa-check-circle" style="font-size:35px;color:green"></i>'.html_safe,
-                      activity_member_url(request.activity, request),
-                      data: { "turbo-method": :patch },
-                      class: "icon-response" %>
-                      <%= link_to '<i class="fa fa-circle-xmark" style="font-size:40px;color:red"></i>'.html_safe,
+                      <%= link_to '<i class="fa-regular fa-circle-xmark" style="font-size: 35px; color: #FF7474"></i>'.html_safe,
                       activity_member_url(request.activity, request),
                       data: { "turbo-method": :delete },
+                      class: "icon-response" %>
+                      <%= link_to '<i class="far fa-check-circle" style="font-size: 35px; color: #5FE07B;"></i>'.html_safe,
+                      activity_member_url(request.activity, request),
+                      data: { "turbo-method": :patch },
                       class: "icon-response" %>
                     </div>
                   </div>
