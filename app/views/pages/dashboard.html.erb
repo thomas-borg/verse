@@ -22,9 +22,11 @@
           <%end %>
         </div>
       <% else %>
-
-      <%# ########################### ---------------- PLACEHOLDER HERE ----------------- ##################################### %>
-
+        <%= render partial: 'pages/404' %>
+        <div class="d-flex flex-column w-100 align-items-center px-5">
+          <h5 class="text-center" style="color: 14213D;">No requests yet. Sit tight while we find some players, or create an event while you wait!</h5>
+          <a href="/activities/new" class="btn btn-primary rounded-pill w-50 mt-2">Click here!</a>
+        </div>
       <%end %>
     </div>
 
@@ -39,9 +41,11 @@
           <% end %>
         </div>
       <% else %>
-
-      <%# ########################### ---------------- PLACEHOLDER HERE ----------------- ##################################### %>
-
+        <%= render partial: 'pages/404' %>
+        <div class="d-flex flex-column w-100 align-items-center px-5">
+          <h5 class="text-center" style="color: 14213D;">You don't have any activities planned</h5>
+          <a href="/activities" class="btn btn-primary rounded-pill w-50 mt-3">Find some!</a>
+        </div>
       <% end %>
     </div>
 
@@ -52,14 +56,14 @@
 
             <%= render partial: 'activities/card', locals: {activity: activity} %>
 
-
           <% end %>
         </div>
       <% else %>
-
-      <%# ########################### ---------------- PLACEHOLDER HERE ----------------- ##################################### %>
-
-            <%# here %>
+        <%= render partial: 'pages/404' %>
+        <div class="d-flex flex-column w-100 align-items-center px-5">
+          <h5 class="text-center" style="color: 14213D;">Looks like you haven't created any activities.</h5>
+          <a href="/activities/new" class="btn btn-primary rounded-pill w-50 mt-3">Create one!</a>
+        </div>
       <%end %>
     </div>
   </div>
