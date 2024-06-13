@@ -1,14 +1,15 @@
 <div class="form-container mx-auto">
-  <h1 class="form-header">Add your activity!</h1>
+  <h1 class="form-header mb-5">Create your activity!</h1>
   <%= simple_form_for(@activity) do |f| %>
     <div class="form-group">
-      <%= f.input :name, input_html: { class: 'form-control' } %>
+      <%= f.input :name, label: "Title:", input_html: { class: 'form-control' } %>
     </div>
     <div class="form-group">
-      <%= f.input :description, input_html: { class: 'form-control' } %>
+      <%= f.input :description, label: "Add a short description:", input_html: { class: 'form-control' } %>
     </div>
     <div class="form-group mt-4">
       <%= f.input :date_time,
+      label: "Date/time:",
               as: :string,
               input_html: { data: { controller: "datepicker" } } %>
     </div>
@@ -16,7 +17,7 @@
       <%= f.input :location, input_html: { class: 'form-control' } %>
     </div>
     <div class="form-group mt-4">
-      <%= f.input :sport_id, collection: @sports, label: "I'm looking for a..", prompt: 'Choose one', input_html: { class: 'form-control' } %>
+      <%= f.input :sport_id, collection: @sports, label: "Choose a sports category:", prompt: 'Choose one', input_html: { class: 'form-control' } %>
     </div>
     <div class="text-center mt-3">
       <%= f.submit 'Add Activity', class: "p-2 btn-go btn-custom" %>
