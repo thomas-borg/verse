@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
     @messages = Message.where(activity: @activity)
     @message = Message.new
 
-    @hide_footer_div = true
+    # @hide_footer_div = true
   end
 
   def show
