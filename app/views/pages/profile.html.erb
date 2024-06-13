@@ -18,7 +18,7 @@
         <div class="user-informations d-flex justify-content-between">
           <div class="personal-details">
               <div class="details-title">
-                <h3>Username</h3>
+              <h3>Username</h3>
               </div>
               <div class="user-name">
                 <h5><%= @user.username %></h5>
@@ -29,6 +29,13 @@
               </div>
               <div class="full-name">
                 <h5 class="first-name"><%= @user.first_name.capitalize %>  <%= @user.last_name.capitalize %></h5>
+              </div>
+              <hr class="featurette-divider">
+              <div class="details-title">
+                <h3>E-mail</h3>
+              </div>
+              <div class="user-mail">
+                <h5><%= @user.email %></h5>
               </div>
               <hr class="featurette-divider">
               <div class="details-title">
