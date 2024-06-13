@@ -12,64 +12,13 @@
   </ul>
   <div class="tab-content" id="myTabContent">
 
-    <div class="tab-pane fade" id="request" role="tabpanel" aria-labelledby="request-tab">
+    <div class="tab-pane fade-test" id="request" role="tabpanel" aria-labelledby="request-tab">
       <% if @requests.empty? == false %>
         <div class="d-flex flex-column">
           <% @requests.each do |request| %>
-            <div class="card-product d-flex flex-column my-1 py-2 px-3 shadow-sm bg-white rounded-4">
 
-                <div class="top-part d-flex">
-                    <a href="/users/<%= request.user.id %>" style="text-decoration: none;">
-                      <div class="pic-request-container pt-1">
-                        <% if request.user.avatar.key == nil %>
-                          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Windows_10_Default_Profile_Picture.svg" alt="Profile icon" class="profile-pic" height="50" width="50">
-                        <% else %>
-                          <%= cl_image_tag request.user.avatar.key, alt: "Profile icon", class:"pic-request" %>
-                        <% end %>
-                      </div>
-                    </a>
+            <%= render partial: 'activities/request', locals: {request: request} %>
 
-                  <div class="ps-2">
-                    <a href="/users/<%= request.user.id %>" style="text-decoration: none;">
-                      <div class="activity-title">
-                        <%= request.user.first_name.capitalize %> sent a request
-                      </div>
-                      <div style="color: #AEAEAE">
-                        <u><%= request.activity.name.capitalize %></u>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="bottom-part d-flex align-items-center justify-content-between pt-2" style="width: 350px; font-size: 16px">
-                  <div class="location-part">
-                    <div class="d-flex pb-1 card-address">
-                      <i class='fas fa-map-marker-alt pt-1' style='font-size:18px;color:#FCA326'></i>
-                      <div class="ps-1">
-                        <%= request.activity.short_address %>
-                      </div>
-                    </div>
-                    <div class="d-flex" >
-                      <i class='far fa-clock pt-1' style='font-size:18px;color:#FCA326'></i>
-                      <div class="ps-1 card-time">
-                        <%= request.activity.date_time.strftime("%H:%M, %a %eth") %>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="button-apply ps-1 pt-1">
-                    <div class="d-flex flex-row pe-3 pb-1">
-                      <%= link_to '<i class="fa-regular fa-circle-xmark" style="font-size: 45px; color: #FF7474"></i>'.html_safe,
-                      activity_member_url(request.activity, request),
-                      data: { "turbo-method": :delete },
-                      class: "icon-response pe-3" %>
-                      <%= link_to '<i class="far fa-check-circle" style="font-size: 45px; color: #5FE07B;"></i>'.html_safe,
-                      activity_member_url(request.activity, request),
-                      data: { "turbo-method": :patch },
-                      class: "icon-response" %>
-                    </div>
-                  </div>
-
-              </div>
-            </div>
           <%end %>
         </div>
       <% else %>
@@ -79,7 +28,7 @@
       <%end %>
     </div>
 
-    <div class="tab-pane fade show active" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
+    <div class="tab-pane fade-test show active" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
       <% if @upcomings.empty? == false %>
         <div class="d-flex flex-column">
           <%  @upcomings.each do |upcoming| %>
@@ -96,7 +45,7 @@
       <% end %>
     </div>
 
-    <div class="tab-pane fade" id="activity" role="tabpanel" aria-labelledby="activity-tab">
+    <div class="tab-pane fade-test" id="activity" role="tabpanel" aria-labelledby="activity-tab">
       <% if @activities.empty? == false %>
         <div class="d-flex flex-column">
           <% @activities.each do |activity| %>

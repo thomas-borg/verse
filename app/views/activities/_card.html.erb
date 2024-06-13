@@ -3,7 +3,7 @@
   <div class="pic-request-container">
     <a href="/users/<%= activity.user.id %>">
       <% if activity.user.avatar.key == nil %>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Windows_10_Default_Profile_Picture.svg" alt="Profile icon" class="profile-pic"  height="50" width="50">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Windows_10_Default_Profile_Picture.svg" alt="Profile icon" class="profile-pic"  height="50" width="50" />
       <% else %>
         <%= cl_image_tag activity.user.avatar.key, alt: "Profile icon", class:"pic-request" %>
       <% end %>
@@ -25,9 +25,9 @@
             <div class="d-flex justify-content-center" style="width: 25px;">
               <i class='fas fa-map-marker-alt pt-1' style='font-size:16px;color:#FCA326'></i>
             </div>
-              <div class="pb-1 card-address">
-                <%= activity.short_address %>
-              </div>
+            <div class="pb-1 card-address">
+              <%= activity.short_address %>
+            </div>
           </div>
           <div class="d-flex">
             <div class="d-flex justify-content-center" style="width: 25px;">
@@ -46,6 +46,7 @@
           </a>
       </div>
     </div>
+
   </div>
   </div>
 </div>
