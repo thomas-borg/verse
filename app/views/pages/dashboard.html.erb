@@ -17,45 +17,50 @@
       <% if @requests.empty? == false %>
         <div class="d-flex flex-column">
           <% @requests.each do |request| %>
-            <div class="requests d-flex border border-white my-1 py-2 px-3 rounded-4 d-flex align-items-center justify-content-between bg-white shadow-sm">
-              <div class="d-flex flex-column">
+            <div class="card-product d-flex flex-column my-1 py-2 px-3 shadow-sm bg-white rounded-4">
+
                 <div class="top-part d-flex">
-                  <div>
                     <a href="/users/<%= request.user.id %>" style="text-decoration: none;">
-                      <div class="pic-request-container"><%= cl_image_tag request.user.avatar.key, alt: "Profile icon", class:"pic-request" %></div>
+                      <div class="pic-request-container pt-1">
+                        <% if request.user.avatar.key == nil %>
+                          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Windows_10_Default_Profile_Picture.svg" alt="Profile icon" class="profile-pic" height="50" width="50">
+                        <% else %>
+                          <%= cl_image_tag request.user.avatar.key, alt: "Profile icon", class:"pic-request" %>
+                        <% end %>
+                      </div>
                     </a>
-                  </div>
-                  <div class="ps-4">
-                    <div style="font-size: 19px"><strong> <%= request.user.first_name %> sent a request</strong></div>
+
+                  <div class="ps-2">
+                    <div class="activity-title"><%= request.user.first_name.capitalize %> sent a request</div>
                     <a href="/users/<%= request.user.id %>" style="text-decoration: none;">
-                      <div style="color: #AEAEAE"><u> <%= request.activity.name %></u></div>
+                      <div style="color: #AEAEAE"><u> <%= request.activity.name.capitalize %></u></div>
                     </a>
                   </div>
                 </div>
-                <div class="bottom-part d-flex align-items-center justify-content-between" style="width: 350px; font-size: 16px">
-                  <div class="location-part ps-3">
-                    <div class="d-flex">
+                <div class="bottom-part d-flex align-items-center justify-content-between pt-2" style="width: 350px; font-size: 16px">
+                  <div class="location-part">
+                    <div class="d-flex pb-1 card-address">
                       <i class='fas fa-map-marker-alt pt-1' style='font-size:18px;color:#FCA326'></i>
                       <div class="ps-1"><%= request.activity.short_address %></div>
                     </div>
                     <div class="d-flex" >
                       <i class='far fa-clock pt-1' style='font-size:18px;color:#FCA326'></i>
-                      <div class="ps-1"><%= request.activity.date_time.strftime("%H:%M, %a %eth") %></div>
+                      <div class="ps-1 card-time"><%= request.activity.date_time.strftime("%H:%M, %a %eth") %></div>
                     </div>
                   </div>
-                  <div class="button-apply pt-3">
-                    <div class="d-flex flex-row">
-                      <%= link_to '<i class="far fa-check-circle" style="font-size:35px;color:green"></i>'.html_safe,
+                  <div class="button-apply pt-1">
+                    <div class="d-flex flex-row pe-3 pb-1">
+                      <%= link_to '<i class="fa-regular fa-circle-xmark" style="font-size: 45px; color: #FF7474"></i>'.html_safe,
+                      activity_member_url(request.activity, request),
+                      data: { "turbo-method": :delete },
+                      class: "icon-response pe-3" %>
+                      <%= link_to '<i class="far fa-check-circle" style="font-size: 45px; color: #5FE07B;"></i>'.html_safe,
                       activity_member_url(request.activity, request),
                       data: { "turbo-method": :patch },
                       class: "icon-response" %>
-                      <%= link_to '<i class="fa fa-circle-xmark" style="font-size:40px;color:red"></i>'.html_safe,
-                      activity_member_url(request.activity, request),
-                      data: { "turbo-method": :delete },
-                      class: "icon-response" %>
                     </div>
                   </div>
-                </div>
+
               </div>
             </div>
           <%end %>
@@ -68,7 +73,13 @@
         <div class="container d-flex flex-column">
           <%  @upcomings.each do |upcoming| %>
             <div class="requests border border-white py-2 m-1 rounded-4 d-flex align-items-center bg-white shadow-sm">
-              <div class="pic-request-container ms-3"><%= cl_image_tag upcoming.activity.user.avatar.key, alt: "Profile icon", class:"pic-request" %></div>
+              <div class="pic-request-container ms-3">
+                <% if upcoming.activity.user.avatar.key == nil %>
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Windows_10_Default_Profile_Picture.svg" alt="Profile icon" class="profile-pic"  height="50" width="50">
+                <% else %>
+                  <%= cl_image_tag upcoming.activity.user.avatar.key, alt: "Profile icon", class:"pic-request" %>
+                <% end %>
+              </div>
               <div class="ps-3">
                 <div class="d-flex flex-column">
                   <div class="ps-2" style="font-size: 20px"><strong> <%= upcoming.activity.name  %></strong></div>
@@ -105,7 +116,13 @@
         <div class="container d-flex flex-column">
           <%  @activities.each do |activity| %>
             <div class="requests border border-white py-1 m-1 rounded-4 d-flex align-items-center bg-white shadow-sm">
-              <div class="pic-request-container ms-3"><%= cl_image_tag @user.avatar.key, alt: "Profile icon", class:"pic-request" %></div>
+              <div class="pic-request-container ms-3">
+                <% if @user.avatar.key == nil %>
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Windows_10_Default_Profile_Picture.svg" alt="Profile icon" class="profile-pic"  height="50" width="50">
+                <% else %>
+                  <%= cl_image_tag @user.avatar.key, alt: "Profile icon", class:"pic-request" %>
+                <% end %>
+              </div>
               <div class="d-flex flex-column ps-3">
                 <div class="ps-2" style="font-size: 20px"><strong> <%= activity.name  %></strong></div>
                 <div class="d-flex">
