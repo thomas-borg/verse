@@ -1,14 +1,14 @@
-
+<div>
   <div class="chats d-flex flex-column">
-    <div class="container chatroom"
+    <div class="container chatroom" style="height: 580px;"
       data-controller="chatroom-subscription"
       data-chatroom-subscription-chatroom-id-value="<%= @activity.id %>"
       data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
     >
-      <h1 class="topic my-2 px-3"><strong><%= @activity.name %></strong></h1>
+      <h1 class="topic my-2 px-3"><%= @activity.name.capitalize %></h1>
       <h3 class="my-2 d-flex justify-content-center"><%= @activity.short_address %></h3>
       <div class="row px-2 pb-2">
-        <div class="messages" id="messages-container" style="height: 390px; overflow-y: auto; border-top: 1px solid #ccc; padding: 10px;" data-chatroom-subscription-target="messages">
+        <div class="messages" id="messages-container" style="height: 500px; overflow-y: auto; border-top: 1px solid #ccc; padding: 10px;" data-chatroom-subscription-target="messages">
           <% @messages.each do |message| %>
 
             <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
@@ -36,3 +36,4 @@
         <% end %>
     </div>
   </div>
+</div>
