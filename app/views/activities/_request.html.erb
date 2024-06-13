@@ -31,7 +31,7 @@
       <div class="d-flex pb-1 card-address">
         <i class='fas fa-map-marker-alt pt-1' style='font-size:18px;color:#FCA326'></i>
         <div class="ps-1">
-          <%= request.activity.short_address %>
+          <%= truncate(request.activity.short_address, length: 18, omission: '...') %>
         </div>
       </div>
 
