@@ -22,13 +22,19 @@
                 <div class="top-part d-flex">
                   <div>
                     <a href="/users/<%= request.user.id %>" style="text-decoration: none;">
-                      <div class="pic-request-container"><%= cl_image_tag request.user.avatar.key, alt: "Profile icon", class:"pic-request" %></div>
+                      <div class="pic-request-container ms-3">
+                        <% if request.user.avatar.key == nil %>
+                          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Windows_10_Default_Profile_Picture.svg" alt="Profile icon" class="profile-pic" height="250">
+                        <% else %>
+                          <%= cl_image_tag request.user.avatar.key, alt: "Profile icon", class:"pic-request" %>
+                        <% end %>
+                      </div>
                     </a>
                   </div>
                   <div class="ps-4">
-                    <div style="font-size: 19px"><strong> <%= request.user.first_name %> sent a request</strong></div>
+                    <div style="font-size: 19px"><strong> <%= request.user.first_name.capitalize %> sent a request</strong></div>
                     <a href="/users/<%= request.user.id %>" style="text-decoration: none;">
-                      <div style="color: #AEAEAE"><u> <%= request.activity.name %></u></div>
+                      <div style="color: #AEAEAE"><u> <%= request.activity.name.capitalize %></u></div>
                     </a>
                   </div>
                 </div>
@@ -68,7 +74,13 @@
         <div class="container d-flex flex-column">
           <%  @upcomings.each do |upcoming| %>
             <div class="requests border border-white py-2 m-1 rounded-4 d-flex align-items-center bg-white shadow-sm">
-              <div class="pic-request-container ms-3"><%= cl_image_tag upcoming.activity.user.avatar.key, alt: "Profile icon", class:"pic-request" %></div>
+              <div class="pic-request-container ms-3">
+                <% if upcoming.activity.user.avatar.key == nil %>
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Windows_10_Default_Profile_Picture.svg" alt="Profile icon" class="profile-pic" height="250">
+                <% else %>
+                  <%= cl_image_tag upcoming.activity.user.avatar.key, alt: "Profile icon", class:"pic-request" %>
+                <% end %>
+              </div>
               <div class="ps-3">
                 <div class="d-flex flex-column">
                   <div class="ps-2" style="font-size: 20px"><strong> <%= upcoming.activity.name  %></strong></div>
@@ -105,7 +117,13 @@
         <div class="container d-flex flex-column">
           <%  @activities.each do |activity| %>
             <div class="requests border border-white py-1 m-1 rounded-4 d-flex align-items-center bg-white shadow-sm">
-              <div class="pic-request-container ms-3"><%= cl_image_tag @user.avatar.key, alt: "Profile icon", class:"pic-request" %></div>
+              <div class="pic-request-container ms-3">
+                <% if @user.avatar.key == nil %>
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Windows_10_Default_Profile_Picture.svg" alt="Profile icon" class="profile-pic" height="250">
+                <% else %>
+                  <%= cl_image_tag @user.avatar.key, alt: "Profile icon", class:"pic-request" %>
+                <% end %>
+              </div>
               <div class="d-flex flex-column ps-3">
                 <div class="ps-2" style="font-size: 20px"><strong> <%= activity.name  %></strong></div>
                 <div class="d-flex">
