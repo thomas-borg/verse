@@ -13,6 +13,7 @@ export default class extends Controller {
       text: "The activity will appear in your dashboard if it is accepted by the host!",
       showCancelButton: true,
       cancelButtonText: `<a href="/dashboard" style="color: white;">Open Dashboard</a>`,
+      confirmButtonColor: "#FFA500",
     })
     this.element.remove()
   }
