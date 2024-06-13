@@ -10,11 +10,14 @@ class MessagesController < ApplicationController
     @activity = Activity.find(params[:activity_id])
     @messages = Message.where(activity: @activity)
     @message = Message.new
+
+    @hide_footer_div = true
   end
 
   def show
     @message = Message.find(params[:id])
     @sent_time = @message.created_at
+
   end
 
 
