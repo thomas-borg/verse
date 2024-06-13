@@ -84,7 +84,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
-  gem "dotenv-rails"
   gem "cloudinary"
 
 gem "pg_search", "~> 2.3"

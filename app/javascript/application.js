@@ -5,7 +5,9 @@ import "@popperjs/core"
 import "bootstrap"
 import "@rails/actioncable"
 
+
 document.addEventListener("DOMContentLoaded", () => {
+
   setTimeout(() => {
     const flashMessages = document.querySelectorAll(".flash-message");
     flashMessages.forEach(message => {
