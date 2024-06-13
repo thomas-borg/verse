@@ -4,7 +4,7 @@
     <a href="/users/<%= request.user.id %>" style="text-decoration: none;">
       <div class="pic-request-container pt-1">
         <% if request.user.avatar.key == nil %>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Windows_10_Default_Profile_Picture.svg" alt="Profile icon" class="profile-pic" height="50" width="50">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Windows_10_Default_Profile_Picture.svg" alt="Profile icon" class="pic-request">
         <% else %>
           <%= cl_image_tag request.user.avatar.key, alt: "Profile icon", class:"pic-request" %>
         <% end %>
