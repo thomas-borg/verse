@@ -25,14 +25,14 @@
               </div>
               <hr class="featurette-divider">
               <div class="details-title">
-              <h3>Full Name</h3>
+                <h3>Full Name</h3>
               </div>
               <div class="full-name">
                 <h5 class="first-name"><%= @user.first_name.capitalize %>  <%= @user.last_name.capitalize %></h5>
               </div>
               <hr class="featurette-divider">
               <div class="details-title">
-              <h3>E-mail</h3>
+                <h3>E-mail</h3>
               </div>
               <div class="user-mail">
                 <h5><%= @user.email %></h5>
@@ -41,7 +41,7 @@
               <div class="details-title">
                 <h3>About Me</h3>
               </div>
-              <div class="personal-details">Hi there! I'm a fitness enthusiast and amateur marathon runner. I enjoy weightlifting, cycling, and hiking in my free time. Follow me for workout tips, race updates, and motivation to stay active and healthy!</div>
+              <div class="personal-details"><%= @user.about.capitalize %></div>
               <hr class="featurette-divider">
 
               <div class="d-flex">
