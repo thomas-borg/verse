@@ -1,0 +1,20 @@
+{
+  "background_color": "white",
+  "description": "VerSe is a platform that helps you find your sports buddy. Whether you are looking for a tennis partner, a running buddy or a group to play basketball with, VerSe is the place to be.",
+  "display": "fullscreen",
+  "name": "VerSe",
+  "short_name": "VerSe",
+  "start_url": "/",
+  "icons": [
+
+    <% files = Dir.entries(Rails.root.join("app/assets/images/pwa/")).select {|f| !File.directory? f} %>
+    <% files.each_with_index do |file, index| %>
+      <% match = file.match(/.+-(?<size>\d{2,3}x\d{2,3}).png/) %>
+      {
+        "src": "<%= image_path "pwa/#{file}" %>",
+        "sizes": "<%= match && match[:size] %>",
+        "type": "image/png"
+      }<%= "," unless (files.size - 1) == index %>
+    <% end %>
+  ]
+}
