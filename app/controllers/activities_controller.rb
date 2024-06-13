@@ -61,6 +61,12 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def destroy
+    @activity = Activity.find(params[:id])
+    @activity.destroy
+    redirect_to dashboard_path
+  end
+
   private
 
   def set_activity
