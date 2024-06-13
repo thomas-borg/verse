@@ -415,6 +415,57 @@ User.destroy_all
 Sport.destroy_all
 puts "--------- Creating users -------"
 
+  # file = URI.open(sport[:image_url])
+  # new_sport.photo.attach(io: file, filename: "#{sport}.jpg", content_type: "image/jpg")
+  # new_sport.save
+
+
+  def mach_sport(sport_nl)
+    if sport_nl == "VOETBAL"
+      return "Foot"
+    elsif sport_nl == "OVERIG"
+      return "Others"
+    elsif sport_nl == "JEUDEBOULES"
+      return "Petanque"
+    elsif sport_nl == "TAFELTENNIS"
+      return "Ping pong"
+    elsif sport_nl == "BASKETBAL"
+      return "Basketball"
+    end
+    return sport_nl.downcase.capitalize
+  end
+
+  # ----------- sports seeding -------
+  puts "------- Creating Sports -------"
+  sports = [
+    { name: "Soccer", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/soccer.jpg" },
+    { name: "Basketball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/basketball.jpg" },
+    { name: "Baseball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/baseball.jpg" },
+    { name: "Tennis", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/tennis.jpg" },
+    { name: "Volleyball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/volleyball.jpg" },
+    { name: "Cricket", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/cricket.jpg" },
+    { name: "Rugby", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/rugby.jpg" },
+    { name: "Hockey", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/hockey.jpg" },
+    { name: "Golf", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/golf.jpg" },
+    { name: "Cycling", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/cycling.jpg" },
+    { name: "Tennis", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/tennis.jpg" },
+    { name: "Badminton", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/badminton.jpg" },
+    { name: "Table Tennis", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/table_tennis.jpg" },
+    { name: "Basketball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/basketball.jpg" },
+    { name: "Softball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/softball.jpg" },
+    { name: "Handball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/handball.jpg" }
+  ]
+
+  sports.each do |sport|
+    new_sport = Sport.create!(sport)
+
+    # file = URI.open(sport[:image_url])
+    # new_sport.photo.attach(io: file, filename: "#{sport}.jpg", content_type: "image/jpg")
+    # new_sport.save
+
+    puts "#{sport[:name]} created"
+  end
+
 # ----------- users seeding -------
 users = [
   { username: "adrian.schober", first_name: "adrian", last_name: "schober", email: "adrian@gmail.com", password: "testtest", image_url: "https://res.cloudinary.com/dgwufhbse/image/upload/v1718032085/development/adrian_qu3a17.jpg" },
@@ -441,68 +492,25 @@ users = [
 
 ]
 
+client = OpenAI::Client.new
+
 users.each do |user|
   new_user = User.new(user)
+  randomSportIndex = rand(0..sports.size - 1)
+  the_sport = sports[randomSportIndex][:name]
+  chatgpt_response = client.chat(parameters: {
+    model: "gpt-3.5-turbo",
+    messages: [{ role: "user", content: "Write a very casual description for a user profile on a sport app for someone named #{user[:first_name]}, write it in the first-person and don't mention gender. Maybe include something about their personality and that they like #{the_sport}. It doesn't have to include all of these things but it should be between 120 - 480 characters."}]
+  })
+  desc = chatgpt_response["choices"][0]["message"]["content"]
+  new_user.about = desc
   file = URI.open(user[:image_url])
   new_user.avatar.attach(io: file, filename: "#{user[:first_name]}.jpg", content_type: "image/jpg")
   new_user.save
+  puts desc
   puts "#{new_user[:username]} created"
 end
 
-  # file = URI.open(sport[:image_url])
-  # new_sport.photo.attach(io: file, filename: "#{sport}.jpg", content_type: "image/jpg")
-  # new_sport.save
-
-
-def mach_sport(sport_nl)
-  if sport_nl == "VOETBAL"
-    return "Foot"
-  elsif sport_nl == "OVERIG"
-    return "Others"
-  elsif sport_nl == "JEUDEBOULES"
-    return "Petanque"
-  elsif sport_nl == "TAFELTENNIS"
-    return "Ping pong"
-  elsif sport_nl == "BASKETBAL"
-    return "Basketball"
-  end
-  return sport_nl.downcase.capitalize
-end
-
-# ----------- sports seeding -------
-puts "------- Creating Sports -------"
-sports = [
-  { name: "Soccer", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/soccer.jpg" },
-  { name: "Basketball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/basketball.jpg" },
-  { name: "Baseball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/baseball.jpg" },
-  { name: "Tennis", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/tennis.jpg" },
-  { name: "Volleyball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/volleyball.jpg" },
-  { name: "Cricket", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/cricket.jpg" },
-  { name: "Rugby", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/rugby.jpg" },
-  { name: "Hockey", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/hockey.jpg" },
-  { name: "Golf", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/golf.jpg" },
-  { name: "Swimming", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/swimming.jpg" },
-  { name: "Cycling", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/cycling.jpg" },
-  { name: "Boxing", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/boxing.jpg" },
-  { name: "Wrestling", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/wrestling.jpg" },
-  { name: "Tennis", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/tennis.jpg" },
-  { name: "Badminton", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/badminton.jpg" },
-  { name: "Table Tennis", category: "Individual", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/table_tennis.jpg" },
-  { name: "Basketball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/basketball.jpg" },
-  { name: "American Football", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/american_football.jpg" },
-  { name: "Softball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/softball.jpg" },
-  { name: "Handball", category: "Team", image_url: "https://res.cloudinary.com/demo/image/upload/v1622497997/handball.jpg" }
-]
-
-sports.each do |sport|
-  new_sport = Sport.create!(sport)
-
-  # file = URI.open(sport[:image_url])
-  # new_sport.photo.attach(io: file, filename: "#{sport}.jpg", content_type: "image/jpg")
-  # new_sport.save
-
-  puts "#{sport[:name]} created"
-end
 
 puts "------- Creating Activities -------"
 # ----------- activities seeding -------
@@ -526,7 +534,7 @@ all_activities = data['features']
   # ----- generate random sentense for name -----
   # game_type = ['match', 'tournament', 'league', 'season', 'training', 'championship', 'competition', 'game']
   # level = ["beginner", "intermediate", "advanced", "pro", "recreational"]
-  type = ["3 vs 3", "4 vs 4", "5 vs 5", "1 vs 1", "11 vs 11"]
+  type = [ "1 vs 1",  "2 vs 2", "3 vs 3", "4 vs 4", "5 vs 5"]
 
   # ---- Random Sport from the array -----
   randomSportIndex = rand(0..sports.size - 1)
@@ -546,7 +554,7 @@ all_activities = data['features']
   client = OpenAI::Client.new
   chatgpt_response = client.chat(parameters: {
     model: "gpt-3.5-turbo",
-    messages: [{ role: "user", content: "Write a brief description of a post that is looking for extra players to join a #{sentence} game at #{address} (only include the name of the suburb). The description should be at least 80 characters but no more than 320. Only return the description and not your own explaination. "}]
+    messages: [{ role: "user", content: "Write a brief description of a post that is looking for extra players to join a #{sentence} game, make it fun and very casual. The description should be at least 80 characters but no more than 320. Only return the description and not your own explanation."}]
   })
 
   desc = chatgpt_response["choices"][0]["message"]["content"]
