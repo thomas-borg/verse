@@ -3,12 +3,12 @@
   <div class="container d-flex flex-column justify-content-center align-items-center" style="height: 540px;">
     <h1 class="mb-5">Find sports near <strong>you!</strong></h1>
     <div class="col-12">
-      <div class="mt-3">
+      <div class="container mt-3">
         <%= form_with url: activities_path, method: :get, class: "d-flex " do %>
           <%= text_field_tag :query,
                 params[:query],
                 class: "form-control rounded-start-pill",
-                placeholder: "Search for activities..."
+                placeholder: "Enter a sport or location... "
             %>
           <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
         <% end %>
