@@ -30,6 +30,10 @@
     </div>
     <div class="d-flex justify-content-around mt-2 mb-5" >
       <button onclick="history.back()" class="btn btn-bck">Go Back</button>
+      <% if @activity.user.id == current_user.id %>
+        <%= link_to 'Delete', activity_path(@activity), method: :delete,data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-bck' %>
+      <% end %>
+
       <% if @activity.user != current_user %>
         <% if @is_member.empty? == true %>
           <div class="button-request d-flex justify-content-center" data-controller="pop-up">

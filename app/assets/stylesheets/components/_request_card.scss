@@ -46,9 +46,15 @@
   height: 50px;
 }
 
+
+.nav-link {
+  color: #acacac!important; /* Add your preferred color */
+}
+
 .nav-link.active {
     border-bottom: 3px solid #FCA326!important; /* Add your preferred color */
-  }
+    color: #1A0C2B!important; /* Add your preferred color */
+}
 
 .swal2-confirm {
   box-shadow: none!important;
